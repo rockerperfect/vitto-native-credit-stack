@@ -70,84 +70,97 @@ const Step1Contact = ({ onVerified }) => {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="text-center mb-8">
-        <h2 className="text-xl font-bold text-white mb-2 tracking-tight italic uppercase tracking-widest text-xs opacity-60">Step 01 / Identity Verification</h2>
-        <p className="text-textSecondary text-sm">Enter your contact details to receive a secure access code.</p>
+    <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+      <div className="mb-10">
+        <div className="text-accent font-bold tracking-[0.3em] uppercase text-[10px] mb-2">Authentication</div>
+        <h2 className="text-2xl font-bold text-white mb-2 tracking-tight italic font-header">Identity Verification</h2>
+        <p className="text-textSecondary text-xs font-light uppercase tracking-widest opacity-60">Enter institutional credentials to proceed.</p>
       </div>
 
-      <form onSubmit={status === 'otpSent' ? handleVerifyOTP : handleSendOTP} className="space-y-6">
+      <form onSubmit={status === 'otpSent' ? handleVerifyOTP : handleSendOTP} className="space-y-8">
         <div>
-          <label className="block text-xs font-bold uppercase tracking-widest text-textPrimary mb-3 opacity-60">Email or Phone</label>
+          <div className="flex justify-between items-end mb-4">
+            <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">Credential Input</label>
+            <span className="text-[9px] font-mono text-white/20 italic">v2.1-SECURE</span>
+          </div>
           <div className="relative group">
-            <div className={`absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none transition-colors ${status === 'otpSent' ? 'text-accent/40' : 'text-textSecondary group-focus-within:text-accent'}`}>
+            <div className={`absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none transition-all duration-500 ${status === 'otpSent' ? 'text-accent/20' : 'text-white/20 group-focus-within:text-accent'}`}>
               {contact.includes('@') ? <Mail size={18} /> : <Phone size={18} />}
             </div>
             <input
               type="text"
-              className={`w-full bg-primary border-2 rounded-xl py-4 pl-12 pr-4 text-white placeholder-textSecondary/30 focus:outline-none transition-all duration-300 ${status === 'otpSent' ? 'border-accent/20 bg-accent/5 opacity-50 cursor-not-allowed' : 'border-border focus:border-accent shadow-inner'}`}
-              placeholder="e.g. name@bank.com or +91..."
+              className={`w-full bg-white/[0.02] border border-white/10 rounded-xl py-5 pl-14 pr-5 text-white placeholder-white/10 focus:outline-none transition-all duration-500 font-light ${status === 'otpSent' ? 'opacity-30 grayscale cursor-not-allowed bg-transparent' : 'focus:border-accent focus:bg-white/[0.04] group-hover:border-white/20'}`}
+              placeholder="name@institution.com or +91..."
               value={contact}
               onChange={(e) => setContact(e.target.value)}
               disabled={status === 'otpSent' || status === 'sending'}
+              autoFocus
             />
           </div>
         </div>
 
         {status === 'otpSent' && (
-          <div className="animate-in fade-in slide-in-from-top-4 duration-500">
-            <label className="block text-xs font-bold uppercase tracking-widest text-textPrimary mb-3 opacity-60">Enter 6-Digit OTP</label>
+          <div className="animate-in fade-in slide-in-from-top-4 duration-700">
+             <div className="flex justify-between items-end mb-4">
+               <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent/80">Secured Access Key</label>
+               <span className="text-[9px] font-mono text-accent/40 italic">EXPIRING IN 5:00</span>
+             </div>
             <div className="relative group">
-              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-accent">
+              <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none text-accent animate-pulse">
                 <Lock size={18} />
               </div>
               <input
                 type="text"
-                className="w-full bg-primary border-2 border-accent rounded-xl py-4 pl-12 pr-4 text-white placeholder-textSecondary/30 focus:outline-none focus:shadow-[0_0_20px_rgba(211,47,47,0.2)]"
-                placeholder="123456"
+                className="w-full bg-accent/5 border border-accent/40 rounded-xl py-5 pl-14 pr-5 text-white placeholder-white/20 focus:outline-none focus:shadow-[0_0_40px_rgba(211,47,47,0.15)] transition-all duration-500 font-mono tracking-[0.5em] text-lg uppercase"
+                placeholder="000000"
                 maxLength={6}
                 value={otp}
                 onChange={(e) => setOtp(e.target.value)}
                 disabled={status === 'verifying'}
+                autoFocus
               />
             </div>
-            <p className="mt-4 text-xs font-semibold italic text-accent flex items-center gap-2">
-              <CheckCircle2 size={14} /> {message}
-            </p>
+            <div className="mt-4 p-3 bg-accent/5 border border-accent/10 rounded-lg flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-accent italic">
+              <CheckCircle2 size={14} className="animate-bounce" /> {message || 'Security code transmitted successully.'}
+            </div>
           </div>
         )}
 
         {error && (
-          <div className="p-4 rounded-xl bg-accent/10 border border-accent/20 flex items-center gap-3 text-sm text-accent font-medium animate-pulse">
+          <div className="p-4 rounded-xl bg-accent/5 border border-accent/20 flex items-center gap-4 text-xs text-accent font-bold uppercase tracking-widest animate-in fade-in zoom-in duration-300">
             <AlertCircle size={18} /> {error}
           </div>
         )}
 
         <button
           type="submit"
-          className="btn-primary w-full py-5 text-sm uppercase tracking-[0.2em] font-bold shadow-2xl hover:shadow-accent/40 transition-all active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
+          className="group relative w-full py-5 rounded-xl bg-accent text-white overflow-hidden transition-all active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_30px_rgba(211,47,47,0.2)]"
           disabled={status === 'sending' || status === 'verifying'}
         >
-          {status === 'sending' || status === 'verifying' ? (
-            <span className="flex items-center gap-2">
-               <Loader2 className="animate-spin" size={20} /> Processing...
-            </span>
-          ) : status === 'otpSent' ? (
-            'Verify Access Code'
-          ) : (
-            'Send Security Code'
-          )}
+          <div className="absolute inset-0 bg-white/10 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out"></div>
+          <span className="relative z-10 flex items-center justify-center gap-3 text-xs font-black uppercase tracking-[0.3em]">
+            {status === 'sending' || status === 'verifying' ? (
+              <>
+                 <Loader2 className="animate-spin" size={18} /> Encrypting...
+              </>
+            ) : status === 'otpSent' ? (
+              'Verify Access Key'
+            ) : (
+              'Initialize Gateway'
+            )}
+          </span>
         </button>
       </form>
       
       {status === 'otpSent' && (
-        <div className="text-center mt-6">
+        <div className="text-center pt-4 border-t border-white/5">
           <button 
             type="button" 
             onClick={() => setStatus('idle')}
-            className="text-xs font-bold uppercase tracking-widest text-textSecondary hover:text-accent transition-colors"
+            className="text-[9px] font-black uppercase tracking-[0.4em] text-white/20 hover:text-accent transition-all duration-500 flex items-center justify-center gap-2 mx-auto"
           >
-            Correction: Re-enter Contact?
+            <span className="w-1 h-1 rounded-full bg-accent/40 animate-ping"></span>
+            Interface Reset: Different Credential?
           </button>
         </div>
       )}
