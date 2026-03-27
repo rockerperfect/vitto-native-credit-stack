@@ -5,10 +5,11 @@ import Platform from './pages/Platform';
 import Lifecycle from './pages/Lifecycle';
 import Collections from './pages/Collections';
 import AgenticAI from './pages/AgenticAI';
-import APIInfra from './pages/APIInfra';
+import API from './pages/API';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Signup from './pages/Signup';
+import InsightsArticle from './pages/InsightsArticle';
 import Footer from './components/layout/Footer';
 
 const Layout = ({ children }) => (
@@ -23,7 +24,8 @@ const Layout = ({ children }) => (
           <Link to="/lifecycle" className="hover:text-textPrimary transition-colors">Lifecycle</Link>
           <Link to="/collections" className="hover:text-textPrimary transition-colors">Collections</Link>
           <Link to="/agentic-ai" className="hover:text-textPrimary transition-colors">Agentic AI</Link>
-          <Link to="/api-infra" className="hover:text-textPrimary transition-colors">API</Link>
+          <Link to="/api" className="hover:text-textPrimary transition-colors">API</Link>
+          <Link to="/insights/ai-native-vs-retrofit" className="hover:text-textPrimary transition-colors">Insights</Link>
           <Link to="/about" className="hover:text-textPrimary transition-colors">About</Link>
         </nav>
         <div className="flex gap-4">
@@ -32,7 +34,7 @@ const Layout = ({ children }) => (
         </div>
       </div>
     </header>
-    
+
     <main className="flex-1 flex flex-col">
       {children}
     </main>
@@ -50,10 +52,11 @@ function App() {
           <Route path="/lifecycle" element={<Lifecycle />} />
           <Route path="/collections" element={<Collections />} />
           <Route path="/agentic-ai" element={<AgenticAI />} />
-          <Route path="/api-infra" element={<APIInfra />} />
+          <Route path="/api" element={<API />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/insights/ai-native-vs-retrofit" element={<InsightsArticle />} />
         </Routes>
       </Layout>
     </Router>
