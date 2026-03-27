@@ -1,8 +1,3 @@
-<<<<<<< Updated upstream
-\documents
-\README.md
-node_modules/
-=======
 # Build & Dependency Artifacts
 /documents
 node_modules/
@@ -56,4 +51,7 @@ Desktop.ini
 # Project-specific Documentation (if you want these ignored)
 # \documents
 # \README.md
->>>>>>> Stashed changes
+=======
+dist/
+assets/
+

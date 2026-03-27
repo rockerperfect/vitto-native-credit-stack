@@ -1,11 +1,25 @@
 import React from 'react';
+import HeroSection from '../components/sections/HeroSection';
+import ProblemSection from '../components/sections/ProblemSection';
+import SolutionSection from '../components/sections/SolutionSection';
+import AILayerSection from '../components/sections/AILayerSection';
+import BusinessImpactSection from '../components/sections/BusinessImpactSection';
+import SocialProofSection from '../components/sections/SocialProofSection';
+import FeaturedInsights from '../components/sections/FeaturedInsights';
+import CTABanner from '../components/sections/CTABanner';
 
 const Home = () => {
   return (
-    <div className="container mx-auto px-6 py-12">
-      <h1 className="text-3xl font-bold text-textPrimary">Home</h1>
-      <p className="text-textSecondary mt-4">This is the Home module.</p>
-    </div>
+    <>
+      <HeroSection />
+      <ProblemSection />
+      <SolutionSection />
+      <AILayerSection />
+      <BusinessImpactSection />
+      <SocialProofSection />
+      <FeaturedInsights />
+      <CTABanner />
+    </>
   );
 };
 
