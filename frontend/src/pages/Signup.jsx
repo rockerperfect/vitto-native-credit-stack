@@ -12,7 +12,7 @@ const Signup = () => {
   const nextStep = () => setStep(prev => prev + 1);
 
   return (
-    <div className="min-h-screen bg-primary flex flex-col items-center justify-center px-6 py-24 relative overflow-hidden">
+    <div className="min-h-screen bg-primary flex flex-col items-center justify-center px-4 sm:px-6 py-20 sm:py-24 relative overflow-hidden">
       {/* Background Lights */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none -z-10">
         <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-accent/5 blur-[150px] rounded-full animate-pulse"></div>
@@ -21,11 +21,11 @@ const Signup = () => {
 
       <div className="w-full max-w-xl relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="flex items-center justify-center mb-8">
-            <VittoLogo iconSize={52} textSize="text-3xl" noLink />
+        <div className="text-center mb-10 sm:mb-16">
+          <div className="flex items-center justify-center mb-6 sm:mb-8">
+            <VittoLogo iconSize={40} textSize="text-2xl sm:text-3xl" noLink />
           </div>
-          <h1 className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tighter italic font-header uppercase">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4 tracking-tighter italic font-header uppercase">
             Institutional Onboarding
           </h1>
           <p className="text-accent font-bold text-[10px] uppercase tracking-[0.5em] animate-pulse">
@@ -34,12 +34,12 @@ const Signup = () => {
         </div>
 
         {/* Step Indicator */}
-        <div className="flex items-center justify-between mb-16 relative px-8">
-           <div className="absolute top-1/2 left-8 right-8 h-px bg-white/5 -z-10"></div>
+        <div className="flex items-center justify-between mb-10 sm:mb-16 relative px-4 sm:px-8">
+           <div className="absolute top-1/2 left-4 right-4 sm:left-8 sm:right-8 h-px bg-white/5 -z-10"></div>
            {[1, 2, 3].map((s) => (
              <div 
                key={s}
-               className={`w-12 h-12 rounded-xl flex items-center justify-center text-xs font-black transition-all duration-700 border ${
+               className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center text-xs font-black transition-all duration-700 border ${
                  step >= s 
                    ? 'bg-accent border-accent text-white shadow-[0_0_30px_rgba(211,47,47,0.3)] scale-110' 
                    : 'glass-card border-white/10 text-white/20'
@@ -51,7 +51,7 @@ const Signup = () => {
         </div>
 
         {/* Form Container */}
-        <div className="glass-card p-10 md:p-14 relative overflow-hidden group shadow-2xl border-white/10">
+        <div className="glass-card p-6 sm:p-10 md:p-14 relative overflow-hidden group shadow-2xl border-white/10">
           <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 blur-[80px] -z-10 group-hover:bg-accent/10 transition-colors duration-1000"></div>
           
           <div className="relative z-10">

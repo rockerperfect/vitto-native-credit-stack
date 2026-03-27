@@ -18,13 +18,13 @@ const ArticleHero = () => {
            </div>
         </div>
         
-        <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-8 text-white">
-           Retrofit AI vs. <br />
-           <span className="text-accent italic font-light italic underline decoration-accent decoration-2 underline-offset-8">AI-Native Infrastructure</span>
+        <h1 className="text-4xl md:text-6xl font-bold font-header leading-[1.1] mb-8 text-white uppercase tracking-tight">
+          Retrofit AI vs <br />
+          <span className="text-accent italic font-light italic underline decoration-accent decoration-2 underline-offset-8">AI-Native Infrastructure</span> in BFSI
         </h1>
         
-        <p className="text-xl md:text-2xl text-textSecondary leading-relaxed font-light italic border-l-4 border-accent pl-8 py-2">
-           Why the current wave of "layered-on" AI adoption in BFSI is creating structural debt, and why re-architecture is the only path to autonomous credit.
+        <p className="text-xl md:text-2xl text-textSecondary leading-relaxed font-light italic border-l-4 border-accent pl-8 py-2 max-w-2xl">
+          Why layering AI onto legacy systems creates structural debt, and why re-architecture is becoming unavoidable.
         </p>
       </div>
     </section>

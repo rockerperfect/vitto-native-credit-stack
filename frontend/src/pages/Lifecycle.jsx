@@ -131,11 +131,36 @@ const LifecycleCTA = () => {
   );
 };
 
+import AILifecycleVisualization from '../components/sections/AILifecycleVisualization';
+
+const PositioningBanner = () => {
+  return (
+    <section className="py-20 bg-primary border-y border-white/5 relative overflow-hidden flex items-center justify-center">
+      <div className="absolute top-0 left-0 w-full h-full bg-accent/5 blur-[120px] rounded-full pointer-events-none -z-10 animate-pulse"></div>
+      <div className="container mx-auto px-6 text-center max-w-4xl">
+        <div className="text-[10px] font-black uppercase tracking-[0.5em] text-accent mb-10 animate-in fade-in duration-1000">
+           The Paradigmatic Shift
+        </div>
+        <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight uppercase font-header italic tracking-tight mb-8">
+           Traditional LOS is a <span className="text-white/40 italic line-through decoration-accent/40 decoration-2">transaction system</span>. <br />
+           Vitto is a <span className="text-accent underline decoration-accent/20 decoration-4 underline-offset-12">decisioning system</span>.
+        </h2>
+      </div>
+    </section>
+  );
+};
+
 const Lifecycle = () => {
   return (
     <div className="bg-primary text-textPrimary overflow-hidden">
       <LifecycleHero />
-      <LifecycleStages />
+      <PositioningBanner />
+      <section className="py-24 bg-surface/30">
+        <div className="container mx-auto px-6 mb-24">
+           <AILifecycleVisualization />
+        </div>
+        <LifecycleStages />
+      </section>
       <LifecycleCTA />
     </div>
   );

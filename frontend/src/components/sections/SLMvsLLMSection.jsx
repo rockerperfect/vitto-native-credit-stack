@@ -19,9 +19,9 @@ const SLMvsLLMSection = () => {
               Small Language Models (SLMs) over <span className="text-textSecondary italic">Generic LLMs</span>
             </h2>
             <p className="text-xl text-textSecondary mb-8 leading-relaxed font-light">
-              Public LLMs are designed for broad creativity. Vitto SLMs are designed for **BFSI precision and policy-bound decisioning.**
+              Public LLMs are designed for broad creativity. Vitto SLMs are designed for BFSI precision and policy-bound decisioning.
             </p>
-            
+
             <div className="space-y-6">
               <div className="flex gap-4 p-6 rounded-2xl border border-border bg-primary/50 text-textSecondary hover:border-accent/40 transition-colors">
                 <ServerCrash className="text-accent shrink-0" size={24} />
@@ -30,7 +30,7 @@ const SLMvsLLMSection = () => {
                   <p className="text-sm">High hallucination risks and lack of internal credit policy access makes standard LLMs unsuited for institutional lending.</p>
                 </div>
               </div>
-              
+
               <div className="flex gap-4 p-6 rounded-2xl border border-border bg-accent/5 text-textSecondary hover:border-accent/40 transition-colors">
                 <ShieldCheck className="text-accent shrink-0" size={24} />
                 <div>
