@@ -1,70 +1,80 @@
-const OTP = require('../models/mongo/otp.model');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const OTP = require('../models/mongo/otp.model');
 
-// Generate 6-digit OTP
-const generateOTP = () => {
-  return Math.floor(100000 + Math.random() * 900000).toString();
-};
+// Generate a cryptographically simple 6-digit OTP
+const generateOTP = () => Math.floor(100000 + Math.random() * 900000).toString();
 
-exports.sendOTP = async (req, res) => {
-  const { contact } = req.body;
-
-  if (!contact) {
-    return res.status(400).json({ success: false, error: 'Contact detail is required' });
-  }
-
+// POST /api/auth/send-otp
+const sendOTP = async (req, res) => {
   try {
-    const otpCode = generateOTP();
-    const expiresAt = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes
+    const { contact } = req.body;
 
-    // Store OTP in MongoDB (Update if exists, or create new)
-    await OTP.findOneAndUpdate(
-      { contact },
-      { otp: otpCode, expiresAt, createdAt: new Date() },
-      { upsert: true, new: true }
-    );
+    if (!contact) {
+      return res.status(400).json({ success: false, error: 'Contact (email or phone) is required' });
+    }
 
-    // In a real app, we would send the OTP via Email/SMS here.
-    // For this build, we'll log it and return a success message.
-    console.log(` OTP for ${contact}: ${otpCode}`);
+    const otp = generateOTP();
+    const hashedOTP = await bcrypt.hash(otp, 10);
 
-    res.status(200).json({ 
-      success: true, 
-      message: 'OTP sent successfully (Check server logs for demo purposes)' 
+    // Delete any existing OTP for this contact (prevent replay)
+    await OTP.deleteMany({ contact });
+
+    // Store hashed OTP in MongoDB with 5-min TTL
+    await OTP.create({ contact, otp: hashedOTP });
+
+    // In production: send OTP via SMS (Twilio) or Email (SendGrid)
+    // For now, we log it securely for development
+    console.log(`[OTP] ${contact} → ${otp} (development mode)`);
+
+    res.status(200).json({
+      success: true,
+      message: `OTP sent to ${contact}. Valid for 5 minutes.`,
+      // REMOVE IN PRODUCTION:
+      _dev_otp: process.env.NODE_ENV !== 'production' ? otp : undefined,
     });
   } catch (err) {
-    console.error('Send OTP Error:', err);
+    console.error('[sendOTP error]:', err);
     res.status(500).json({ success: false, error: 'Internal server error' });
   }
 };
 
-exports.verifyOTP = async (req, res) => {
-  const { contact, otp } = req.body;
-
-  if (!contact || !otp) {
-    return res.status(400).json({ success: false, error: 'Contact and OTP are required' });
-  }
-
+// POST /api/auth/verify-otp
+const verifyOTP = async (req, res) => {
   try {
-    const otpRecord = await OTP.findOne({ contact, otp });
+    const { contact, otp } = req.body;
 
-    if (!otpRecord) {
-      return res.status(400).json({ success: false, error: 'Invalid or expired OTP' });
+    if (!contact || !otp) {
+      return res.status(400).json({ success: false, error: 'Contact and OTP are required' });
     }
 
-    // Generate JWT
+    const record = await OTP.findOne({ contact });
+
+    if (!record) {
+      return res.status(400).json({ success: false, error: 'OTP expired or not found' });
+    }
+
+    const isMatch = await bcrypt.compare(otp, record.otp);
+
+    if (!isMatch) {
+      return res.status(401).json({ success: false, error: 'Invalid OTP' });
+    }
+
+    // OTP is valid: delete it immediately (one-time use)
+    await OTP.deleteMany({ contact });
+
+    // Issue a JWT for the subsequent /api/leads request
     const token = jwt.sign(
       { contact },
       process.env.JWT_SECRET,
-      { expiresIn: '1h' }
+      { expiresIn: '15m' } // Short-lived token for the signup flow
     );
-
-    // Remove OTP after verification
-    await OTP.deleteOne({ _id: otpRecord._id });
 
     res.status(200).json({ success: true, token });
   } catch (err) {
-    console.error('Verify OTP Error:', err);
+    console.error('[verifyOTP error]:', err);
     res.status(500).json({ success: false, error: 'Internal server error' });
   }
 };
+
+module.exports = { sendOTP, verifyOTP };
