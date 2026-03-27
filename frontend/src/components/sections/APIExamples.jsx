@@ -55,7 +55,7 @@ const APIExamples = () => {
           <div className="lg:w-1/3">
             <h2 className="text-3xl md:text-5xl font-bold mb-8 text-white leading-tight uppercase tracking-tighter">
               Developer <br />
-              <span className="text-accent italic font-light lowercase font-medium italic underline decoration-accent decoration-2 underline-offset-8">Quick<ctrl94></span>
+              <span className="text-accent italic font-light lowercase font-medium italic underline decoration-accent decoration-2 underline-offset-8">Quick Start</span>
             </h2>
             <p className="text-xl text-textSecondary leading-relaxed font-light mb-12">
                Interact with Vitto's core infrastructure using standard JSON-over-HTTP. Integrated with your existing CI/CD pipelines.
