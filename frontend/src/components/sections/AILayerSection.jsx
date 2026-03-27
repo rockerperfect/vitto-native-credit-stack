@@ -39,7 +39,9 @@ const AILayerSection = () => {
     <section className="py-24 bg-surface border-t border-border">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Core Modules Driving Decisioning</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 italic tracking-tight underline decoration-accent decoration-2 underline-offset-8">
+            The AI Layer of Vitto
+          </h2>
           <p className="text-textSecondary text-lg">
             A fully integrated intelligence layer powering every stage of the lending lifecycle.
           </p>

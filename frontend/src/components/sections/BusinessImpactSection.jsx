@@ -12,7 +12,9 @@ const BusinessImpactSection = () => {
     <section className="py-24 bg-primary text-textPrimary">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Quantifiable Business Impact</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 italic tracking-tight underline decoration-accent decoration-2 underline-offset-8">
+            Business Impact (Measurable from Day One)
+          </h2>
           <p className="text-textSecondary text-lg max-w-2xl mx-auto">
             Translating core system architecture into measurable financial outcomes for your institution.
           </p>

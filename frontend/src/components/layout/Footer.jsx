@@ -41,23 +41,32 @@ const Footer = () => {
           </div>
           
           <div>
-            <h4 className="text-white font-semibold mb-6">Platform</h4>
+            <h4 className="text-white font-semibold mb-6 uppercase tracking-wider text-xs">Pages</h4>
+            <ul className="space-y-4">
+              <li><Link to="/about" className="text-textSecondary hover:text-accent transition-colors">About Us</Link></li>
+              <li><Link to="/contact" className="text-textSecondary hover:text-accent transition-colors">Contact</Link></li>
+              <li><Link to="/signup" className="text-textSecondary hover:text-accent transition-colors font-semibold">Sign Up</Link></li>
+              <li><Link to="/api" className="text-textSecondary hover:text-accent transition-colors">API Docs</Link></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 className="text-white font-semibold mb-6 uppercase tracking-wider text-xs">Partners</h4>
+            <ul className="space-y-4">
+              <li><Link to="/contact" className="text-textSecondary hover:text-accent transition-colors">Become a Partner</Link></li>
+              <li><a href="#" className="text-textSecondary hover:text-accent transition-colors">NBFC Network</a></li>
+              <li><a href="#" className="text-textSecondary hover:text-accent transition-colors">Bank Integrations</a></li>
+              <li><a href="#" className="text-textSecondary hover:text-accent transition-colors">Developer Portal</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 className="text-white font-semibold mb-6 uppercase tracking-wider text-xs">Platform</h4>
             <ul className="space-y-4">
               <li><Link to="/platform" className="text-textSecondary hover:text-accent transition-colors">Architecture</Link></li>
               <li><Link to="/lifecycle" className="text-textSecondary hover:text-accent transition-colors">Lending Lifecycle</Link></li>
               <li><Link to="/collections" className="text-textSecondary hover:text-accent transition-colors">Collections AI</Link></li>
               <li><Link to="/agentic-ai" className="text-textSecondary hover:text-accent transition-colors">Agentic Models</Link></li>
-              <li><Link to="/insights/ai-native-vs-retrofit" className="text-textSecondary hover:text-accent transition-colors italic">Insights Article</Link></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="text-white font-semibold mb-6">Company</h4>
-            <ul className="space-y-4">
-              <li><Link to="/about" className="text-textSecondary hover:text-accent transition-colors">About Us</Link></li>
-              <li><Link to="/api" className="text-textSecondary hover:text-accent transition-colors">API Docs</Link></li>
-              <li><Link to="/contact" className="text-textSecondary hover:text-accent transition-colors">Contact</Link></li>
-              <li><Link to="/signup" className="text-textSecondary hover:text-accent transition-colors">Sign Up</Link></li>
             </ul>
           </div>
           

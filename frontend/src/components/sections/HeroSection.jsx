@@ -11,11 +11,11 @@ const HeroSection = () => {
           <div className="inline-block px-3 py-1 mb-6 border border-border rounded-full bg-surface/50 text-xs font-medium text-textSecondary uppercase tracking-wider">
             Vitto BFSI Architecture
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 tracking-tight">
             AI-First Infrastructure for Modern Financial Services
           </h1>
-          <p className="text-lg text-textSecondary mb-10 leading-relaxed">
-            Vitto is built as a unified decisioning system for Banks, NBFCs, and MFIs. It replaces fragmented LOS, LMS, and rule engines with a single architecture where data, models, and policy operate together.
+          <p className="text-lg text-textSecondary mb-10 leading-relaxed font-light italic border-l-4 border-accent pl-8 py-2">
+            Vitto is not a retrofitted legacy system. It is a unified AI-first architecture built specifically for Banks, NBFCs, and MFIs to replace fragmented vendors with a single, intelligent decisioning nexus.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link to="/contact" className="btn-primary hover:bg-red-700">
