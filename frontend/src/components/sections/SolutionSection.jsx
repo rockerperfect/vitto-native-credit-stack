@@ -1,22 +1,56 @@
 import React from 'react';
-import { Cpu, Network, FileSearch } from 'lucide-react';
+import { Network, FileSearch } from 'lucide-react';
+
+
+const SolutionVisuals = [
+  // Domain-trained Models: Silicon wafer/brain nodes
+  <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-accent shadow-accent/20">
+    <rect x="15" y="15" width="50" height="50" rx="4" stroke="currentColor" strokeWidth="2" strokeOpacity="0.3"/>
+    <path d="M40 25 V55 M25 40 H55" stroke="currentColor" strokeWidth="1.5" strokeOpacity="0.5"/>
+    <circle cx="40" cy="40" r="8" fill="currentColor" fillOpacity="0.1" stroke="currentColor" strokeWidth="2"/>
+    <path d="M40 32 L44 40 L40 48 L36 40 Z" fill="currentColor"/>
+    <rect x="10" y="35" width="5" height="10" fill="currentColor" fillOpacity="0.4"/>
+    <rect x="65" y="35" width="5" height="10" fill="currentColor" fillOpacity="0.4"/>
+    <rect x="35" y="10" width="10" height="5" fill="currentColor" fillOpacity="0.4"/>
+    <rect x="35" y="65" width="10" height="5" fill="currentColor" fillOpacity="0.4"/>
+  </svg>,
+  // Unified Architecture: Central hub
+  <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-accent">
+    <circle cx="40" cy="40" r="6" fill="currentColor"/>
+    <path d="M40 40 L65 15 M40 40 L65 65 M40 40 L15 15 M40 40 L15 65" stroke="currentColor" strokeWidth="2" strokeDasharray="4 4" strokeOpacity="0.3"/>
+    <circle cx="65" cy="15" r="4" stroke="currentColor" strokeWidth="1.5"/>
+    <circle cx="65" cy="65" r="4" stroke="currentColor" strokeWidth="1.5"/>
+    <circle cx="15" cy="15" r="4" stroke="currentColor" strokeWidth="1.5"/>
+    <circle cx="15" cy="65" r="4" stroke="currentColor" strokeWidth="1.5"/>
+    <path d="M30 40 H50" stroke="currentColor" strokeWidth="1"/>
+    <path d="M40 30 V50" stroke="currentColor" strokeWidth="1"/>
+  </svg>,
+  // Explainability: Traced audit trail
+  <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-accent">
+    <path d="M20 60 V20 H60 V60" stroke="currentColor" strokeWidth="2" strokeDasharray="3 3" strokeOpacity="0.3"/>
+    <path d="M20 40 H40 L50 30 H60" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
+    <circle cx="20" cy="40" r="3" fill="currentColor"/>
+    <circle cx="60" cy="30" r="3" fill="currentColor"/>
+    <rect x="35" y="35" width="10" height="10" rx="2" fill="currentColor" fillOpacity="0.2" stroke="currentColor" strokeWidth="1"/>
+  </svg>
+];
 
 const SolutionSection = () => {
   const features = [
     {
-      icon: <Cpu size={20} />,
+      icon: SolutionVisuals[0],
       title: "Domain-trained Models",
       tag: "BFSI-SLM",
       desc: "SLMs built specifically for BFSI compliance and precision."
     },
     {
-      icon: <Network size={20} />,
+      icon: SolutionVisuals[1],
       title: "Unified Architecture",
       tag: "Core Nexus",
       desc: "One central nexus mapping data across Acquisition, LOS, and LMS."
     },
     {
-      icon: <FileSearch size={20} />,
+      icon: SolutionVisuals[2],
       title: "Explainability",
       tag: "SOC2",
       desc: "Complete deterministic traceability for every credit decision made."
