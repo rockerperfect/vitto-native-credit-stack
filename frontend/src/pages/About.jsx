@@ -10,7 +10,6 @@ const About = () => {
   return (
     <div className="bg-primary text-textPrimary overflow-hidden">
       <AboutHero />
-      <ProblemStatementSection />
       <WhyVittoSection />
       <WorkflowComparison />
       <PrinciplesSection />
