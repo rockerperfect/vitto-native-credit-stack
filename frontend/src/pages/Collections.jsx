@@ -11,7 +11,7 @@ const CollectionsHero = () => (
         Predictive <span className="text-accent italic font-light italic underline decoration-accent decoration-2 underline-offset-8">Recovery Scoring</span>
       </h1>
       <p className="text-xl text-textSecondary font-light italic border-l-4 border-accent pl-8 py-2 max-w-3xl mx-auto">
-        Vitto doesn't just track debt—it executes recovery strategies based on institutional risk appetite and recovery probability.
+        Vitto doesn't just track debt, it executes recovery strategies based on institutional risk appetite and recovery probability.
       </p>
     </div>
   </section>
@@ -36,41 +36,41 @@ const RecoveryDecisioning = () => {
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           <div className="p-10 rounded-3xl border border-border bg-primary/50">
-             <h3 className="text-xl font-bold text-white mb-10 flex items-center gap-3 italic">
-                <span className="w-8 h-8 rounded-lg bg-surface flex items-center justify-center text-accent border border-accent/20 italic font-medium">1</span>
-                Scoring Inputs
-             </h3>
-             <div className="grid sm:grid-cols-2 gap-8">
-                {inputs.map((inp, idx) => (
-                  <div key={idx} className="space-y-4">
-                     <div className="text-accent opacity-60 transition-opacity">
-                        {inp.icon}
-                     </div>
-                     <h4 className="font-bold text-white text-sm tracking-tight italic underline decoration-accent decoration-1 underline-offset-4">{inp.title}</h4>
-                     <p className="text-xs text-textSecondary leading-relaxed italic">{inp.desc}</p>
+            <h3 className="text-xl font-bold text-white mb-10 flex items-center gap-3 italic">
+              <span className="w-8 h-8 rounded-lg bg-surface flex items-center justify-center text-accent border border-accent/20 italic font-medium">1</span>
+              Scoring Inputs
+            </h3>
+            <div className="grid sm:grid-cols-2 gap-8">
+              {inputs.map((inp, idx) => (
+                <div key={idx} className="space-y-4">
+                  <div className="text-accent opacity-60 transition-opacity">
+                    {inp.icon}
                   </div>
-                ))}
-             </div>
+                  <h4 className="font-bold text-white text-sm tracking-tight italic underline decoration-accent decoration-1 underline-offset-4">{inp.title}</h4>
+                  <p className="text-xs text-textSecondary leading-relaxed italic">{inp.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="p-10 rounded-3xl border border-accent/20 bg-surface shadow-2xl">
-             <h3 className="text-xl font-bold text-white mb-10 flex items-center gap-3 italic">
-                <span className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-accent border border-accent/20 italic font-medium">2</span>
-                Automated Actions
-             </h3>
-             <div className="space-y-6">
-                {logic.map((l, idx) => (
-                  <div key={idx} className="p-6 rounded-2xl border border-border bg-primary hover:border-accent/40 transition-all">
-                     <div className="flex justify-between items-center mb-4">
-                        <span className={`text-xl font-bold font-mono tracking-tighter ${l.color}`}>{l.range}</span>
-                     </div>
-                     <h4 className="text-base font-bold text-white mb-2 italic tracking-tight">{l.strategy}</h4>
-                     <div className="flex items-center gap-2 text-textSecondary text-xs font-medium italic">
-                        <ExternalLink size={12} className="text-accent" /> {l.action}
-                     </div>
+            <h3 className="text-xl font-bold text-white mb-10 flex items-center gap-3 italic">
+              <span className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-accent border border-accent/20 italic font-medium">2</span>
+              Automated Actions
+            </h3>
+            <div className="space-y-6">
+              {logic.map((l, idx) => (
+                <div key={idx} className="p-6 rounded-2xl border border-border bg-primary hover:border-accent/40 transition-all">
+                  <div className="flex justify-between items-center mb-4">
+                    <span className={`text-xl font-bold font-mono tracking-tighter ${l.color}`}>{l.range}</span>
                   </div>
-                ))}
-             </div>
+                  <h4 className="text-base font-bold text-white mb-2 italic tracking-tight">{l.strategy}</h4>
+                  <div className="flex items-center gap-2 text-textSecondary text-xs font-medium italic">
+                    <ExternalLink size={12} className="text-accent" /> {l.action}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -84,7 +84,7 @@ const Collections = () => {
       <CollectionsHero />
       <RecoveryDecisioning />
       <div className="py-20 text-center bg-primary border-t border-border">
-         <h2 className="text-3xl font-bold text-white italic underline decoration-accent underline-offset-8">Outcome Driven <span className="text-accent">Recovery.</span></h2>
+        <h2 className="text-3xl font-bold text-white italic underline decoration-accent underline-offset-8">Outcome Driven <span className="text-accent">Recovery.</span></h2>
       </div>
     </div>
   );

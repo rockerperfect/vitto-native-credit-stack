@@ -39,7 +39,7 @@ const InteractiveGlassArchitecture = () => {
   return (
     <div 
       ref={containerRef}
-      className="relative w-full h-full min-h-[500px] flex items-center justify-center overflow-hidden group perspective-1000"
+      className="relative w-full h-full min-h-[400px] sm:min-h-[500px] flex items-center justify-center overflow-hidden group perspective-1000 scale-90 sm:scale-100"
     >
       {/* Background Grid Visualization */}
       <div 
@@ -75,7 +75,7 @@ const InteractiveGlassArchitecture = () => {
         
         {/* Top Left: Risk Engine */}
         <div 
-          className="absolute -top-12 -left-8 glass-card p-5 border-accent/30 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-150 preserve-3d"
+          className="absolute -top-6 sm:-top-12 -left-4 sm:-left-8 glass-card p-4 sm:p-5 border-accent/30 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-150 preserve-3d"
           style={{ transform: `translateZ(40px)` }}
         >
           <div className="flex items-center gap-3 mb-2">
@@ -87,7 +87,7 @@ const InteractiveGlassArchitecture = () => {
 
         {/* Bottom Right: AUM Output */}
         <div 
-          className="absolute -bottom-8 -right-8 glass-card p-5 border-white/10 animate-in fade-in slide-in-from-top-8 duration-1000 delay-300 preserve-3d"
+          className="absolute -bottom-4 sm:-bottom-8 -right-4 sm:-right-8 glass-card p-4 sm:p-5 border-white/10 animate-in fade-in slide-in-from-top-8 duration-1000 delay-300 preserve-3d"
           style={{ transform: `translateZ(60px)` }}
         >
           <div className="flex items-center gap-3 mb-2">

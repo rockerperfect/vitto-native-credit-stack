@@ -44,7 +44,7 @@ const DecisioningArchitecture = () => {
       id: 5,
       title: "Downstream Action",
       icon: <TrendingUp className="w-5 h-5" />,
-      desc: "Triggers actions in core lending systems—from LOS disbursement to LMS servicing.",
+      desc: "Triggers actions in core lending systems from LOS disbursement to LMS servicing.",
       details: ["LOS integration", "LMS ledger updates", "Automated communication"]
     }
   ];
@@ -63,26 +63,24 @@ const DecisioningArchitecture = () => {
         <div className="hidden lg:flex items-center justify-between gap-4 mb-20 relative">
           {/* Connector Line */}
           <div className="absolute top-[26px] left-[5%] right-[5%] h-[2px] bg-border -z-10"></div>
-          
+
           {steps.map((step, idx) => (
-            <button 
+            <button
               key={step.id}
               onClick={() => setActiveStep(step.id)}
               className="flex flex-col items-center group relative z-10 w-40 focus:outline-none"
             >
-              <div 
-                className={`w-14 h-14 rounded-full border-2 flex items-center justify-center transition-all duration-300 shadow-lg ${
-                  activeStep === step.id 
-                  ? 'border-accent bg-accent text-white shadow-accent/25 scale-110' 
-                  : 'border-border bg-primary text-textSecondary group-hover:border-accent group-hover:text-accent'
-                }`}
+              <div
+                className={`w-14 h-14 rounded-full border-2 flex items-center justify-center transition-all duration-300 shadow-lg ${activeStep === step.id
+                    ? 'border-accent bg-accent text-white shadow-accent/25 scale-110'
+                    : 'border-border bg-primary text-textSecondary group-hover:border-accent group-hover:text-accent'
+                  }`}
               >
                 {step.icon}
               </div>
-              <div 
-                className={`mt-4 text-xs font-semibold uppercase tracking-wider text-center transition-colors ${
-                  activeStep === step.id ? 'text-accent' : 'text-textSecondary group-hover:text-textPrimary'
-                }`}
+              <div
+                className={`mt-4 text-xs font-semibold uppercase tracking-wider text-center transition-colors ${activeStep === step.id ? 'text-accent' : 'text-textSecondary group-hover:text-textPrimary'
+                  }`}
               >
                 {step.title}
               </div>
@@ -93,18 +91,16 @@ const DecisioningArchitecture = () => {
         {/* Vertical Pipeline for Mobile */}
         <div className="lg:hidden space-y-4 mb-20">
           {steps.map((step, idx) => (
-            <button 
+            <button
               key={step.id}
               onClick={() => setActiveStep(step.id)}
-              className={`w-full p-4 rounded-lg flex items-center gap-4 border transition-all ${
-                activeStep === step.id 
-                ? 'border-accent bg-accent/5 text-textPrimary' 
-                : 'border-border bg-primary text-textSecondary'
-              }`}
+              className={`w-full p-4 rounded-lg flex items-center gap-4 border transition-all ${activeStep === step.id
+                  ? 'border-accent bg-accent/5 text-textPrimary'
+                  : 'border-border bg-primary text-textSecondary'
+                }`}
             >
-              <div className={`w-10 h-10 rounded-full border flex items-center justify-center shrink-0 ${
-                activeStep === step.id ? 'border-accent text-accent' : 'border-border'
-              }`}>
+              <div className={`w-10 h-10 rounded-full border flex items-center justify-center shrink-0 ${activeStep === step.id ? 'border-accent text-accent' : 'border-border'
+                }`}>
                 {step.id + 1}
               </div>
               <span className="font-semibold text-sm">{step.title}</span>
@@ -115,7 +111,7 @@ const DecisioningArchitecture = () => {
         {/* Detail View Container */}
         <div className="bg-primary/50 rounded-2xl border border-border p-8 md:p-12 min-h-[320px] shadow-2xl relative overflow-hidden flex flex-col md:flex-row gap-12 group transition-all duration-500">
           <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 blur-[80px] -z-10 animate-pulse"></div>
-          
+
           <div className="md:w-1/3">
             <div className="w-16 h-16 rounded-2xl bg-surface border border-border text-accent flex items-center justify-center mb-6 shadow-xl">
               {steps[activeStep].icon}
