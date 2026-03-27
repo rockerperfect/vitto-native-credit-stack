@@ -10,9 +10,9 @@ const AboutHero = () => (
       </div>
       <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-8 text-white">
         Infrastructure for <br />
-        <span className="text-accent italic font-light italic underline decoration-accent decoration-2 underline-offset-8">Decision-First Credit</span>
+        <span className="text-accent italic font-light underline decoration-accent decoration-2 underline-offset-8">Decision-First Credit</span>
       </h1>
-      <p className="text-xl md:text-2xl text-textSecondary leading-relaxed font-light italic border-l-4 border-accent pl-8 py-2 max-w-3xl mx-auto text-center">
+      <p className="text-xl md:text-2xl text-textSecondary leading-relaxed font-light italic border-l-4 border-accent pl-8 py-2 max-w-3xl mx-auto">
         Vitto is built on the belief that traditional lending software executes transactions, but modern financial services require systems that execute decisions.
       </p>
     </div>
@@ -20,33 +20,33 @@ const AboutHero = () => (
 );
 
 const WhyVittoSection = () => {
-    const differentiators = [
-        { title: "Unified Data Layer", desc: "No fragmented LOS or LMS. One central nexus for credit data.", icon: <Layers size={18} /> },
-        { title: "Policy-Bound AI", desc: "Deterministic decisioning without hallucination risks.", icon: <ShieldCheck size={18} /> },
-        { title: "Low Latency", desc: "Sub-100ms decisioning for real-time applications.", icon: <Zap size={18} /> },
-        { title: "Institutional Grade", desc: "Built for Banks, NBFCs, and MFIs with full auditability.", icon: <ArrowRight size={18} /> }
-    ];
+  const differentiators = [
+    { title: "Unified Data Layer", desc: "No fragmented LOS or LMS. One central nexus for credit data.", icon: <Layers size={18} /> },
+    { title: "Policy-Bound AI", desc: "Deterministic decisioning without hallucination risks.", icon: <ShieldCheck size={18} /> },
+    { title: "Low Latency", desc: "Sub-100ms decisioning for real-time applications.", icon: <Zap size={18} /> },
+    { title: "Institutional Grade", desc: "Built for Banks, NBFCs, and MFIs with full auditability.", icon: <ArrowRight size={18} /> }
+  ];
 
-    return (
-        <section className="py-24 bg-surface border-y border-border">
-            <div className="container mx-auto px-6">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl font-bold text-white uppercase tracking-tighter">The Vitto <span className="text-accent italic font-light font-medium italic underline decoration-accent decoration-1 underline-offset-4">Differentiator.</span></h2>
-                </div>
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {differentiators.map((diff, idx) => (
-                        <div key={idx} className="p-8 rounded-2xl border border-border bg-primary hover:border-accent/40 transition-all font-light italic">
-                            <div className="w-10 h-10 rounded-lg bg-surface border border-border flex items-center justify-center text-accent mb-6">
-                                {diff.icon}
-                            </div>
-                            <h3 className="text-base font-bold text-white mb-2">{diff.title}</h3>
-                            <p className="text-xs text-textSecondary leading-relaxed italic">{diff.desc}</p>
-                        </div>
-                    ))}
-                </div>
+  return (
+    <section className="py-24 bg-surface border-y border-border">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-bold text-white uppercase tracking-tighter">The Vitto <span className="text-accent italic font-light underline decoration-accent decoration-1 underline-offset-4">Differentiator.</span></h2>
+        </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {differentiators.map((diff, idx) => (
+            <div key={idx} className="p-8 rounded-2xl border border-border bg-primary hover:border-accent/40 transition-all">
+              <div className="w-10 h-10 rounded-lg bg-surface border border-border flex items-center justify-center text-accent mb-6">
+                {diff.icon}
+              </div>
+              <h3 className="text-base font-bold text-white mb-2">{diff.title}</h3>
+              <p className="text-xs text-textSecondary leading-relaxed italic">{diff.desc}</p>
             </div>
-        </section>
-    );
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 };
 
 const About = () => {
@@ -55,8 +55,8 @@ const About = () => {
       <AboutHero />
       <WhyVittoSection />
       <div className="py-32 text-center bg-primary border-t border-border">
-         <h2 className="text-3xl font-bold text-white italic underline decoration-accent underline-offset-8">Join the Decision <span className="text-accent">First Future.</span></h2>
-         <Link to="/signup" className="btn-primary mt-12 inline-block">Get Started Now</Link>
+        <h2 className="text-3xl font-bold text-white italic underline decoration-accent underline-offset-8">Join the Decision <span className="text-accent">First Future.</span></h2>
+        <Link to="/signup" className="btn-primary mt-12 inline-block">Get Started Now</Link>
       </div>
     </div>
   );
