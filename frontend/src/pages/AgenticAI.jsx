@@ -1,20 +1,20 @@
 import React from 'react';
 import AgenticAIHero from '../components/sections/AgenticAIHero';
-import WhyNotLLMSection from '../components/sections/WhyNotLLMSection';
-import HowItWorksSection from '../components/sections/HowItWorksSection';
-import AgentsSection from '../components/sections/AgentsSection';
-import GuardrailsSection from '../components/sections/GuardrailsSection';
-import AgenticAICTA from '../components/sections/AgenticAICTA';
+import AgenticAISection from '../components/sections/AgenticAISection';
+import RAGPipelineSection from '../components/sections/RAGPipelineSection';
+import SLMvsLLMSection from '../components/sections/SLMvsLLMSection';
+import GuardrailsOutput from '../components/sections/GuardrailsOutput';
+import CTABanner from '../components/sections/CTABanner';
 
 const AgenticAI = () => {
   return (
     <div className="bg-primary text-textPrimary overflow-hidden">
       <AgenticAIHero />
-      <WhyNotLLMSection />
-      <HowItWorksSection />
-      <AgentsSection />
-      <GuardrailsSection />
-      <AgenticAICTA />
+      <AgenticAISection />
+      <RAGPipelineSection />
+      <SLMvsLLMSection />
+      <GuardrailsOutput />
+      <CTABanner />
     </div>
   );
 };

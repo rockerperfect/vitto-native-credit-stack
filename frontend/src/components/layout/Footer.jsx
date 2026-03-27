@@ -47,6 +47,7 @@ const Footer = () => {
               <li><Link to="/lifecycle" className="text-textSecondary hover:text-accent transition-colors">Lending Lifecycle</Link></li>
               <li><Link to="/collections" className="text-textSecondary hover:text-accent transition-colors">Collections AI</Link></li>
               <li><Link to="/agentic-ai" className="text-textSecondary hover:text-accent transition-colors">Agentic Models</Link></li>
+              <li><Link to="/insights/ai-native-vs-retrofit" className="text-textSecondary hover:text-accent transition-colors italic">Insights Article</Link></li>
             </ul>
           </div>
           
@@ -54,7 +55,7 @@ const Footer = () => {
             <h4 className="text-white font-semibold mb-6">Company</h4>
             <ul className="space-y-4">
               <li><Link to="/about" className="text-textSecondary hover:text-accent transition-colors">About Us</Link></li>
-              <li><Link to="/api-infra" className="text-textSecondary hover:text-accent transition-colors">API Docs</Link></li>
+              <li><Link to="/api" className="text-textSecondary hover:text-accent transition-colors">API Docs</Link></li>
               <li><Link to="/contact" className="text-textSecondary hover:text-accent transition-colors">Contact</Link></li>
               <li><Link to="/signup" className="text-textSecondary hover:text-accent transition-colors">Sign Up</Link></li>
             </ul>
