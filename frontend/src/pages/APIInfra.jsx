@@ -1,8 +1,5 @@
-<<<<<<< Updated upstream
-import React from 'react';
-=======
 import React, { useState } from 'react';
-import { Terminal, Code, Cpu, ArrowRight, Layers, ShieldCheck, Check, AlertCircle, Lock, Zap } from 'lucide-react';
+import { Terminal, ArrowRight, Layers, ShieldCheck, AlertCircle, Lock, Zap } from 'lucide-react';
 
 const APIHero = () => (
   <section className="bg-primary pt-32 pb-24 border-b border-border text-center">
@@ -21,7 +18,7 @@ const APIHero = () => (
   </section>
 );
 
-const APIExamples = () => {
+const APIExamplesInline = () => {
   const [activeTab, setActiveTab] = useState('send-otp');
   const [activeSection, setActiveSection] = useState('payload');
   
@@ -34,8 +31,8 @@ const APIExamples = () => {
         "X-Idempotency-Key": "unique-request-id-123"
       },
       payload: { "phoneNumber": "+91 9876543210" },
-      response: { "message": "OTP sent successfully" },
-      errorResponse: { "success": false, "error": "Invalid phone format" }
+      response: { "success": true, "message": "OTP sent successfully" },
+      errorResponse: { "success": false, "error": "Invalid OTP" }
     },
     'leads': {
       method: "POST",
@@ -45,7 +42,7 @@ const APIExamples = () => {
         "Content-Type": "application/json"
       },
       payload: { "orgName": "Apex NBFC", "contactPerson": "Arjun Mehta", "useCase": "Collections" },
-      response: { "leadId": "LD-88921", "status": "CREATED" },
+      response: { "success": true, "leadId": "LD-88921", "status": "CREATED" },
       errorResponse: { "success": false, "error": "Unauthorized Access" }
     },
     'policy-lookup': {
@@ -63,7 +60,7 @@ const APIExamples = () => {
   const getContent = () => {
     const ex = examples[activeTab];
     if (activeSection === 'headers') return ex.headers;
-    if (activeSection === 'payload') return ex.payload || { "msg": "No payload for GET requests" };
+    if (activeSection === 'payload') return ex.payload || { "msg": "No request body for GET requests" };
     if (activeSection === 'response') return ex.response;
     if (activeSection === 'error') return ex.errorResponse;
     return {};
@@ -85,7 +82,7 @@ const APIExamples = () => {
                   onClick={() => { setActiveTab(tab); setActiveSection('payload'); }}
                   className={`w-full p-6 text-left rounded-xl border transition-all flex justify-between items-center ${activeTab === tab ? 'bg-accent border-white text-white italic font-bold' : 'bg-primary border-border text-textSecondary'}`}
                  >
-                    <span className="uppercase tracking-widest text-xs">{tab.replace('-', ' ')}</span>
+                    <span className="uppercase tracking-widest text-xs">{tab.replace(/-/g, ' ')}</span>
                     <div className="flex items-center gap-3">
                       <span className="text-[10px] opacity-70 font-mono">{examples[tab].method}</span>
                       <ArrowRight size={16} />
@@ -137,7 +134,6 @@ const APIExamples = () => {
     </section>
   );
 };
->>>>>>> Stashed changes
 
 const GovernanceResilience = () => {
   const policies = [
@@ -148,7 +144,7 @@ const GovernanceResilience = () => {
     },
     { 
       title: "Idempotency", 
-      desc: "Critical endpoints require 'X-Idempotency-Key' to prevent duplicate disbursements or payments.", 
+      desc: "Critical endpoints require X-Idempotency-Key to prevent duplicate disbursements or payments.", 
       icon: <Lock size={20} /> 
     },
     { 
@@ -192,20 +188,14 @@ const GovernanceResilience = () => {
 
 const APIInfra = () => {
   return (
-<<<<<<< Updated upstream
-    <div className="container mx-auto px-6 py-12">
-      <h1 className="text-3xl font-bold text-textPrimary">APIInfra</h1>
-      <p className="text-textSecondary mt-4">This is the APIInfra module.</p>
-=======
     <div className="bg-primary text-textPrimary overflow-hidden">
       <APIHero />
-      <APIExamples />
+      <APIExamplesInline />
       <GovernanceResilience />
       <div className="py-20 text-center bg-surface border-t border-border">
          <h2 className="text-3xl font-bold text-white italic underline decoration-accent underline-offset-8">Production <span className="text-accent">Ready.</span></h2>
          <p className="text-textSecondary mt-4 italic">Integrated with standard JWT and X-Idempotency patterns.</p>
       </div>
->>>>>>> Stashed changes
     </div>
   );
 };
