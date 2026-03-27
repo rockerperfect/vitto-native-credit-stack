@@ -1,5 +1,4 @@
 # Build & Dependency Artifacts
-/documents
 node_modules/
 dist/
 **/node_modules/
@@ -51,7 +50,3 @@ Desktop.ini
 # Project-specific Documentation (if you want these ignored)
 # \documents
 # \README.md
-=======
-dist/
-assets/
-
