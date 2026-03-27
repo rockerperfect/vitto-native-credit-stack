@@ -6,16 +6,17 @@ const connectMongo = require('./src/config/mongo');
 const PORT = process.env.PORT || 5000;
 
 const startServer = async () => {
+  let pgPool;
   try {
-    // Database connections initialized here
-    await connectPostgres();
-    await connectMongo();
+    // Attempt connections
+    await connectPostgres().catch(e => console.error('❌ PG ERROR:', e.message));
+    await connectMongo().catch(e => console.error('❌ MONGO ERROR:', e.message));
     
     app.listen(PORT, () => {
-      console.log(`Server running on port ${PORT}`);
+      console.log(`🚀 Server running on port ${PORT}`);
     });
   } catch (error) {
-    console.error('Failed to start server:', error);
+    console.error('Fatal crash during startup:', error);
     process.exit(1);
   }
 };
