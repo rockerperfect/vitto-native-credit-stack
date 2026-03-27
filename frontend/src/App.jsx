@@ -9,6 +9,7 @@ import APIInfra from './pages/APIInfra';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Signup from './pages/Signup';
+import Footer from './components/layout/Footer';
 
 const Layout = ({ children }) => (
   <div className="min-h-screen flex flex-col bg-primary text-textPrimary font-sans">
@@ -35,12 +36,7 @@ const Layout = ({ children }) => (
     <main className="flex-1 flex flex-col">
       {children}
     </main>
-
-    <footer className="border-t border-border bg-surface mt-auto py-8">
-      <div className="container mx-auto px-6 text-center text-textSecondary text-sm">
-        &copy; {new Date().getFullYear()} Vitto - AI-Native Digital Credit Infrastructure.
-      </div>
-    </footer>
+    <Footer />
   </div>
 );
 
