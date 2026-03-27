@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Globe, MessageSquare, Mail, ArrowRight } from 'lucide-react';
+import VittoLogo from './VittoLogo';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
@@ -17,77 +18,63 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-surface border-t border-border pt-16 pb-8">
+    <footer className="bg-primary border-t border-white/5 pt-32 pb-16 relative overflow-hidden">
+      {/* Background Ambience */}
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-accent/5 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+      
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-16 mb-24">
           <div className="lg:col-span-2">
-            <Link to="/" className="text-2xl font-bold tracking-tight text-white/90 focus:outline-none mb-4 inline-block">
-              VITTO<span className="text-accent">.</span>
-            </Link>
-            <p className="text-textSecondary mb-6 max-w-sm">
-              AI-native decisioning infrastructure for the modern lending lifecycle. Built for scale, compliance, and speed.
+            <div className="mb-8">
+              <VittoLogo iconSize={40} textSize="text-2xl" noLink />
+            </div>
+            <p className="text-textSecondary mb-10 max-w-sm font-light leading-relaxed">
+              AI-native decisioning infrastructure for the modern lending lifecycle. Built for institutional precision, compliance, and deterministic speed.
             </p>
-            <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-primary border border-border flex items-center justify-center text-textSecondary hover:text-accent hover:border-accent transition-colors">
-                <Globe size={18} />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-primary border border-border flex items-center justify-center text-textSecondary hover:text-accent hover:border-accent transition-colors">
-                <MessageSquare size={18} />
-              </a>
-              <a href="mailto:hello@vitto.ai" className="w-10 h-10 rounded-full bg-primary border border-border flex items-center justify-center text-textSecondary hover:text-accent hover:border-accent transition-colors">
-                <Mail size={18} />
-              </a>
+            <div className="flex gap-6 grayscale opacity-40 hover:opacity-100 transition-all duration-500">
+              <a href="#" className="text-white hover:text-accent transition-colors"><Globe size={20} /></a>
+              <a href="#" className="text-white hover:text-accent transition-colors"><MessageSquare size={20} /></a>
+              <a href="mailto:hello@vitto.ai" className="text-white hover:text-accent transition-colors"><Mail size={20} /></a>
             </div>
           </div>
           
           <div>
-            <h4 className="text-white font-semibold mb-6 uppercase tracking-wider text-xs">Pages</h4>
+            <h4 className="text-accent font-bold mb-8 uppercase tracking-[0.3em] text-[10px]">Pages</h4>
             <ul className="space-y-4">
-              <li><Link to="/about" className="text-textSecondary hover:text-accent transition-colors">About Us</Link></li>
-              <li><Link to="/contact" className="text-textSecondary hover:text-accent transition-colors">Contact</Link></li>
-              <li><Link to="/signup" className="text-textSecondary hover:text-accent transition-colors font-semibold">Sign Up</Link></li>
-              <li><Link to="/api" className="text-textSecondary hover:text-accent transition-colors">API Docs</Link></li>
+              <li><Link to="/about" className="text-textSecondary text-sm font-bold hover:text-white transition-colors uppercase tracking-widest text-[10px]">About Us</Link></li>
+              <li><Link to="/contact" className="text-textSecondary text-sm font-bold hover:text-white transition-colors uppercase tracking-widest text-[10px]">Contact</Link></li>
+              <li><Link to="/signup" className="text-white text-sm font-bold hover:text-accent transition-colors uppercase tracking-widest text-[10px]">Sign Up</Link></li>
+              <li><Link to="/api" className="text-textSecondary text-sm font-bold hover:text-white transition-colors uppercase tracking-widest text-[10px]">API Docs</Link></li>
             </ul>
           </div>
           
           <div>
-            <h4 className="text-white font-semibold mb-6 uppercase tracking-wider text-xs">Partners</h4>
+            <h4 className="text-accent font-bold mb-8 uppercase tracking-[0.3em] text-[10px]">Platform</h4>
             <ul className="space-y-4">
-              <li><Link to="/contact" className="text-textSecondary hover:text-accent transition-colors">Become a Partner</Link></li>
-              <li><a href="#" className="text-textSecondary hover:text-accent transition-colors">NBFC Network</a></li>
-              <li><a href="#" className="text-textSecondary hover:text-accent transition-colors">Bank Integrations</a></li>
-              <li><a href="#" className="text-textSecondary hover:text-accent transition-colors">Developer Portal</a></li>
+              <li><Link to="/platform" className="text-textSecondary text-sm font-bold hover:text-white transition-colors uppercase tracking-widest text-[10px]">Architecture</Link></li>
+              <li><Link to="/lifecycle" className="text-textSecondary text-sm font-bold hover:text-white transition-colors uppercase tracking-widest text-[10px]">Lending Lifecycle</Link></li>
+              <li><Link to="/collections" className="text-textSecondary text-sm font-bold hover:text-white transition-colors uppercase tracking-widest text-[10px]">Collections AI</Link></li>
+              <li><Link to="/agentic-ai" className="text-textSecondary text-sm font-bold hover:text-white transition-colors uppercase tracking-widest text-[10px]">Agentic Models</Link></li>
             </ul>
           </div>
           
           <div>
-            <h4 className="text-white font-semibold mb-6 uppercase tracking-wider text-xs">Platform</h4>
-            <ul className="space-y-4">
-              <li><Link to="/platform" className="text-textSecondary hover:text-accent transition-colors">Architecture</Link></li>
-              <li><Link to="/lifecycle" className="text-textSecondary hover:text-accent transition-colors">Lending Lifecycle</Link></li>
-              <li><Link to="/collections" className="text-textSecondary hover:text-accent transition-colors">Collections AI</Link></li>
-              <li><Link to="/agentic-ai" className="text-textSecondary hover:text-accent transition-colors">Agentic Models</Link></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="text-white font-semibold mb-6">Stay Updated</h4>
-            <p className="text-textSecondary text-sm mb-4">Get the latest on AI credit infrastructure.</p>
-            <form onSubmit={handleSubscribe} className="space-y-2">
-              <div className="relative">
+            <h4 className="text-accent font-bold mb-8 uppercase tracking-[0.3em] text-[10px]">Stay Updated</h4>
+            <p className="text-textSecondary text-[11px] font-bold uppercase tracking-widest mb-6 opacity-60">Get the latest on AI infrastructure.</p>
+            <form onSubmit={handleSubscribe} className="space-y-4">
+              <div className="relative group">
                 <input 
                   type="email" 
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="name@institution.com" 
-                  className="w-full bg-primary border border-border rounded-md py-2.5 pl-4 pr-10 text-sm text-white focus:outline-none focus:border-accent"
+                  className="w-full bg-white/[0.03] border border-white/10 rounded-lg py-3 pl-5 pr-12 text-xs text-white placeholder:text-white/20 focus:outline-none focus:border-accent transition-all group-hover:bg-white/[0.05]"
                   required
                 />
                 <button 
                   type="submit" 
                   disabled={status === 'loading'}
-                  className="absolute right-2 top-1.5 p-1 text-textSecondary hover:text-accent focus:outline-none disabled:opacity-50"
-                  aria-label="Subscribe"
+                  className="absolute right-3 top-2.5 p-1 text-textSecondary hover:text-accent focus:outline-none disabled:opacity-50 transition-colors"
                 >
                   {status === 'loading' ? (
                     <div className="w-4 h-4 rounded-full border-2 border-accent/30 border-t-accent animate-spin"></div>
@@ -97,17 +84,18 @@ const Footer = () => {
                 </button>
               </div>
               {status === 'success' && (
-                <p className="text-xs text-green-500">Subscribed successfully.</p>
+                <p className="text-[10px] font-bold text-green-500 uppercase tracking-widest animate-in fade-in">Request Received Successfully.</p>
               )}
             </form>
           </div>
         </div>
         
-        <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-textSecondary">
-          <p>&copy; {new Date().getFullYear()} Vitto Digital Credit Infrastructure.</p>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] font-bold uppercase tracking-[0.3em] text-white/20">
+          <p className="text-center md:text-left">&copy; {new Date().getFullYear()} Vitto Digital Credit Infrastructure. Institutional Only.</p>
+          <div className="flex gap-10">
+            <a href="#" className="hover:text-white transition-colors">Privacy</a>
+            <a href="#" className="hover:text-white transition-colors">Terms</a>
+            <a href="#" className="hover:text-white transition-colors">Security</a>
           </div>
         </div>
       </div>

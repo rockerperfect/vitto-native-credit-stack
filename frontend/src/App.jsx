@@ -11,36 +11,54 @@ import Contact from './pages/Contact';
 import Signup from './pages/Signup';
 import InsightsArticle from './pages/InsightsArticle';
 import Footer from './components/layout/Footer';
+import VittoLogo from './components/layout/VittoLogo';
 
-const Layout = ({ children }) => (
-  <div className="min-h-screen flex flex-col bg-primary text-textPrimary font-sans">
-    <header className="border-b border-border bg-surface/90 backdrop-blur-sm sticky top-0 z-50">
-      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <Link to="/" className="text-2xl font-bold tracking-tight text-white/90 focus:outline-none">
-          VITTO<span className="text-accent">.</span>
-        </Link>
-        <nav className="hidden md:flex gap-6 text-sm font-medium text-textSecondary">
-          <Link to="/platform" className="hover:text-textPrimary transition-colors">Platform</Link>
-          <Link to="/lifecycle" className="hover:text-textPrimary transition-colors">Lifecycle</Link>
-          <Link to="/collections" className="hover:text-textPrimary transition-colors">Collections</Link>
-          <Link to="/agentic-ai" className="hover:text-textPrimary transition-colors">Agentic AI</Link>
-          <Link to="/api" className="hover:text-textPrimary transition-colors">API</Link>
-          <Link to="/insights/ai-native-vs-retrofit" className="hover:text-textPrimary transition-colors">Insights</Link>
-          <Link to="/about" className="hover:text-textPrimary transition-colors">About</Link>
-        </nav>
-        <div className="flex gap-4">
-          <Link to="/contact" className="text-sm font-medium text-textPrimary hover:text-accent transition-colors self-center">Contact</Link>
-          <Link to="/signup" className="btn-primary py-1.5 px-4 text-sm">Sign Up</Link>
+const Layout = ({ children }) => {
+  const [isScrolled, setIsScrolled] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <div className="min-h-screen flex flex-col bg-primary text-textPrimary font-sans">
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'py-4' : 'py-8'}`}>
+        <div className="container mx-auto px-6">
+          <div className={`glass-card backdrop-blur-2xl transition-all duration-500 border-white/5 flex items-center justify-between px-8 py-4 ${
+            isScrolled ? 'bg-white/5' : 'bg-transparent border-transparent shadow-none'
+          }`}>
+            <VittoLogo iconSize={32} textSize="text-xl" />
+
+            <nav className="hidden lg:flex items-center gap-10">
+              <Link to="/platform" className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/50 hover:text-accent transition-colors">Platform</Link>
+              <Link to="/lifecycle" className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/50 hover:text-accent transition-colors">Lifecycle</Link>
+              <Link to="/collections" className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/50 hover:text-accent transition-colors">Collections</Link>
+              <Link to="/agentic-ai" className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/50 hover:text-accent transition-colors">Agentic AI</Link>
+              <Link to="/api" className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/50 hover:text-accent transition-colors">API</Link>
+              <Link to="/about" className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/50 hover:text-accent transition-colors">About</Link>
+              <Link to="/contact" className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/50 hover:text-accent transition-colors">Contact</Link>
+            </nav>
+
+            <div className="flex gap-4">
+              <Link to="/signup" className="btn-primary !px-6 !py-2 !text-[10px] !rounded-full uppercase tracking-widest font-bold">
+                Get Started
+              </Link>
+            </div>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
 
-    <main className="flex-1 flex flex-col">
-      {children}
-    </main>
-    <Footer />
-  </div>
-);
+      <main className="flex-1 flex flex-col pt-20">
+        {children}
+      </main>
+      <Footer />
+    </div>
+  );
+};
 
 function App() {
   return (

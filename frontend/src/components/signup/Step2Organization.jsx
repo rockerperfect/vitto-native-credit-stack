@@ -52,23 +52,24 @@ const Step2Organization = ({ authToken, contactInfo, onSuccess }) => {
   };
 
   return (
-    <div className="space-y-8 animate-in fade-in slide-in-from-right-8 duration-500">
-      <div className="text-center">
-        <h2 className="text-xl font-bold text-white mb-2 tracking-tight italic uppercase tracking-widest text-xs opacity-60">Step 02 / Institutional Metadata</h2>
-        <p className="text-textSecondary text-sm">Provide your organization details to personalize your credit stack.</p>
+    <div className="space-y-10 animate-in fade-in slide-in-from-right-8 duration-700">
+      <div className="mb-10 text-center md:text-left">
+        <div className="text-accent font-bold tracking-[0.3em] uppercase text-[10px] mb-2">Metadata Configuration</div>
+        <h2 className="text-2xl font-bold text-white mb-2 tracking-tight italic font-header">Institutional Profile</h2>
+        <p className="text-textSecondary text-xs font-light uppercase tracking-widest opacity-60">Provisioning architecture for your organization.</p>
       </div>
 
-      <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="md:col-span-2">
-          <label className="block text-xs font-bold uppercase tracking-widest text-textPrimary mb-3 opacity-60">Institution Name</label>
+          <div className="flex justify-between items-end mb-4 px-1">
+             <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">Institution Name</label>
+             <Building2 size={12} className="text-white/20" />
+          </div>
           <div className="relative group">
-            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-textSecondary group-focus-within:text-accent">
-              <Building2 size={18} />
-            </div>
             <input
               type="text"
               required
-              className="w-full bg-primary border-2 border-border rounded-xl py-4 pl-12 pr-4 text-white placeholder-textSecondary/30 focus:outline-none focus:border-accent transition-all duration-300"
+              className="w-full bg-white/[0.02] border border-white/10 rounded-xl py-5 px-6 text-white placeholder-white/10 focus:outline-none focus:border-accent focus:bg-white/[0.04] transition-all duration-500 font-light group-hover:border-white/20"
               placeholder="e.g. Apex Global Bank"
               value={formData.institution_name}
               onChange={(e) => setFormData({ ...formData, institution_name: e.target.value })}
@@ -77,36 +78,36 @@ const Step2Organization = ({ authToken, contactInfo, onSuccess }) => {
         </div>
 
         <div>
-           <label className="block text-xs font-bold uppercase tracking-widest text-textPrimary mb-3 opacity-60">Institution Type</label>
+           <div className="flex justify-between items-end mb-4 px-1">
+              <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">Entity Type</label>
+           </div>
            <div className="relative group">
-             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-textSecondary group-focus-within:text-accent">
-               <ChevronDown size={14} className="absolute left-4" />
-             </div>
              <select
                required
-               className="w-full bg-primary border-2 border-border rounded-xl py-4 pl-12 pr-4 text-white appearance-none focus:outline-none focus:border-accent transition-all duration-300"
+               className="w-full bg-white/[0.02] border border-white/10 rounded-xl py-5 px-6 text-white appearance-none focus:outline-none focus:border-accent focus:bg-white/[0.04] transition-all duration-500 font-light group-hover:border-white/20 cursor-pointer"
                value={formData.institution_type}
                onChange={(e) => setFormData({ ...formData, institution_type: e.target.value })}
              >
-               <option value="" disabled className="bg-primary">Select Type</option>
+               <option value="" disabled className="bg-primary text-white/40">Select Type</option>
                {institutionTypes.map(t => (
                  <option key={t} value={t} className="bg-primary">{t}</option>
                ))}
              </select>
+             <ChevronDown size={14} className="absolute right-6 top-1/2 -translate-y-1/2 text-white/20 group-hover:text-accent transition-colors" />
            </div>
         </div>
 
         <div>
-           <label className="block text-xs font-bold uppercase tracking-widest text-textPrimary mb-3 opacity-60">City</label>
+           <div className="flex justify-between items-end mb-4 px-1">
+              <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">Primary Jurisdiction</label>
+              <MapPin size={12} className="text-white/20" />
+           </div>
            <div className="relative group">
-             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-textSecondary group-focus-within:text-accent">
-               <MapPin size={18} />
-             </div>
              <input
                type="text"
                required
-               className="w-full bg-primary border-2 border-border rounded-xl py-4 pl-12 pr-4 text-white placeholder-textSecondary/30 focus:outline-none focus:border-accent transition-all duration-300"
-               placeholder="e.g. Mumbai"
+               className="w-full bg-white/[0.02] border border-white/10 rounded-xl py-5 px-6 text-white placeholder-white/10 focus:outline-none focus:border-accent focus:bg-white/[0.04] transition-all duration-500 font-light group-hover:border-white/20"
+               placeholder="e.g. Mumbai / HK / London"
                value={formData.city}
                onChange={(e) => setFormData({ ...formData, city: e.target.value })}
              />
@@ -114,45 +115,49 @@ const Step2Organization = ({ authToken, contactInfo, onSuccess }) => {
         </div>
 
         <div className="md:col-span-2">
-           <label className="block text-xs font-bold uppercase tracking-widest text-textPrimary mb-3 opacity-60">Estimated Loan Book Size</label>
+           <div className="flex justify-between items-end mb-4 px-1">
+              <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">AUM / Loan Book Size</label>
+              <BarChart3 size={12} className="text-white/20" />
+           </div>
            <div className="relative group">
-             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-textSecondary group-focus-within:text-accent">
-               <BarChart3 size={18} />
-             </div>
              <select
                required
-               className="w-full bg-primary border-2 border-border rounded-xl py-4 pl-12 pr-4 text-white appearance-none focus:outline-none focus:border-accent transition-all duration-300"
+               className="w-full bg-white/[0.02] border border-white/10 rounded-xl py-5 px-6 text-white appearance-none focus:outline-none focus:border-accent focus:bg-white/[0.04] transition-all duration-500 font-light group-hover:border-white/20 cursor-pointer"
                value={formData.loan_book_size}
                onChange={(e) => setFormData({ ...formData, loan_book_size: e.target.value })}
              >
-               <option value="" disabled className="bg-primary">Select Range</option>
+               <option value="" disabled className="bg-primary text-white/40">Select Range</option>
                {bookSizes.map(size => (
-                 <option key={size} value={size} className="bg-primary">{size}</option>
+                 <option key={size} value={size} className="bg-primary font-mono tracking-tighter">{size}</option>
                ))}
              </select>
+             <ChevronDown size={14} className="absolute right-6 top-1/2 -translate-y-1/2 text-white/20 group-hover:text-accent transition-colors" />
            </div>
         </div>
 
         {error && (
-          <div className="md:col-span-2 p-4 rounded-xl bg-accent/10 border border-accent/20 flex items-center gap-3 text-sm text-accent font-medium">
+          <div className="md:col-span-2 p-4 rounded-xl bg-accent/5 border border-accent/20 flex items-center gap-4 text-xs text-accent font-bold uppercase tracking-widest animate-in fade-in zoom-in duration-300">
             <AlertCircle size={18} /> {error}
           </div>
         )}
 
         <button
           type="submit"
-          className="md:col-span-2 btn-primary py-5 text-sm uppercase tracking-[0.2em] font-bold shadow-2xl hover:shadow-accent/40 active:scale-[0.98] disabled:opacity-50"
+          className="md:col-span-2 group relative w-full py-6 rounded-xl bg-accent text-white overflow-hidden transition-all active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_40px_rgba(211,47,47,0.2)]"
           disabled={loading}
         >
-          {loading ? (
-             <span className="flex items-center gap-2">
-                <Loader2 className="animate-spin" size={20} /> Deploying Lead Profile...
-             </span>
-          ) : (
-            <span className="flex items-center gap-2">
-               Complete Registration <Rocket size={18} />
-            </span>
-          )}
+          <div className="absolute inset-0 bg-white/10 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out"></div>
+          <span className="relative z-10 flex items-center justify-center gap-4 text-xs font-black uppercase tracking-[0.4em]">
+            {loading ? (
+              <>
+                 <Loader2 className="animate-spin" size={18} /> Deploying Infrastructure...
+              </>
+            ) : (
+              <>
+                Finalize Provisioning <Rocket size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </>
+            )}
+          </span>
         </button>
       </form>
     </div>

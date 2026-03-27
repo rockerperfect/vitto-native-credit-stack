@@ -21,10 +21,12 @@ const PlatformCTA = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-          <Link to="/signup" className="btn-primary px-10 py-4 shadow-accent/20 shadow-2xl hover:shadow-accent/40 active:scale-95 transition-all">
-            Explore Platform <ArrowRight size={20} />
+          <Link to="/signup" className="group/btn relative overflow-hidden bg-accent text-white px-12 py-4 rounded-xl font-bold text-sm uppercase tracking-[0.2em] flex items-center gap-3 shadow-[0_0_30px_rgba(211,47,47,0.25)] hover:shadow-[0_0_50px_rgba(211,47,47,0.45)] transition-all active:scale-[0.98]">
+            <div className="absolute inset-0 bg-white/10 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
+            <span className="relative z-10">Explore Platform</span>
+            <ArrowRight size={18} className="relative z-10 group-hover:translate-x-1 transition-transform" />
           </Link>
-          <Link to="/contact" className="px-10 py-4 rounded-md font-semibold border-2 border-border text-textPrimary hover:border-accent/40 hover:bg-surface transition-all">
+          <Link to="/contact" className="px-12 py-4 rounded-xl font-bold text-sm uppercase tracking-[0.2em] border border-white/10 text-white/60 hover:text-white hover:border-white/30 hover:bg-white/5 transition-all">
             Book a Demo
           </Link>
         </div>

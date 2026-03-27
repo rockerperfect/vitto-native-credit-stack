@@ -25,21 +25,25 @@ const HowItWorksSection = () => {
 
         <div className="relative group">
            {/* Horizontal Connector Line (Desktop) */}
-           <div className="hidden lg:block absolute top-10 left-10 right-10 h-0.5 bg-border -z-10 group-hover:bg-accent/20 transition-colors"></div>
+           <div className="hidden lg:block absolute top-10 left-20 right-20 h-px bg-gradient-to-r from-accent/30 via-white/5 to-accent/30 -z-10" />
 
            <div className="grid lg:grid-cols-5 gap-8">
              {steps.map((step, idx) => (
                <div key={idx} className="flex flex-col items-center text-center group/step">
-                 <div className="w-20 h-20 rounded-full border-2 border-border bg-surface flex items-center justify-center shadow-xl group-hover/step:border-accent/40 group-hover/step:bg-primary z-10 transition-all transform hover:scale-110 mb-8 relative">
-                    <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center border border-border group-hover:border-accent group-hover:text-accent">
+                 <div className={`relative w-20 h-20 rounded-full flex items-center justify-center z-10 mb-8 transition-all duration-500 group-hover/step:scale-110 ${idx === steps.length - 1 ? 'bg-accent/10 border-2 border-accent/60 shadow-[0_0_20px_rgba(211,47,47,0.2)]' : 'bg-primary border border-white/10'}`}>
+                    <div className={`w-12 h-12 rounded-full flex items-center justify-center ${idx === steps.length - 1 ? 'text-accent' : 'text-white/50 group-hover/step:text-accent'} transition-colors`}>
                        {step.icon}
                     </div>
+                    {/* Step number badge */}
+                    <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-primary border border-white/10 flex items-center justify-center text-[8px] font-black text-white/30">
+                      {idx + 1}
+                    </div>
                     {idx < steps.length - 1 && (
-                      <div className="lg:hidden absolute bottom-[-32px] left-1/2 -translate-x-1/2 text-border"><ArrowRight size={24} className="rotate-90" /></div>
+                      <div className="lg:hidden absolute bottom-[-32px] left-1/2 -translate-x-1/2 text-white/10"><ArrowRight size={24} className="rotate-90" /></div>
                     )}
                  </div>
-                 <h3 className="text-sm font-bold text-white mb-2 uppercase tracking-widest">{step.title}</h3>
-                 <p className="text-xs text-textSecondary leading-relaxed max-w-[200px]">{step.desc}</p>
+                 <h3 className="text-sm font-bold text-white mb-2 uppercase tracking-widest group-hover/step:text-accent transition-colors">{step.title}</h3>
+                 <p className="text-xs text-textSecondary leading-relaxed max-w-[180px] font-light">{step.desc}</p>
                </div>
              ))}
            </div>

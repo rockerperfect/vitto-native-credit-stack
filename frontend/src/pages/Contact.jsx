@@ -67,9 +67,12 @@ const ContactForm = () => {
            <label className="text-[10px] font-bold uppercase tracking-widest text-textSecondary italic">Inquiry Details</label>
            <textarea required rows={4} className="w-full bg-primary border border-border rounded-xl px-5 py-4 text-white focus:outline-none focus:border-accent transition-colors italic" placeholder="How can Vitto scale your infrastructure?"></textarea>
         </div>
-        <button type="submit" disabled={status === 'sending'} className="btn-primary w-full py-5 text-sm uppercase tracking-[0.2em] font-bold flex items-center justify-center gap-3 active:scale-[0.98]">
-           {status === 'sending' ? <Loader2 className="animate-spin" size={20} /> : <><Send size={18} /> Deploy Transmission</>}
-        </button>
+        <div className="flex justify-center pt-2">
+          <button type="submit" disabled={status === 'sending'} className="group/btn relative overflow-hidden bg-accent text-white px-12 py-4 rounded-xl font-bold text-sm uppercase tracking-[0.2em] flex items-center gap-3 shadow-[0_0_30px_rgba(211,47,47,0.25)] hover:shadow-[0_0_50px_rgba(211,47,47,0.45)] transition-all active:scale-[0.98] disabled:opacity-60">
+            <div className="absolute inset-0 bg-white/10 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
+            {status === 'sending' ? <Loader2 className="animate-spin relative z-10" size={18} /> : <><Send size={16} className="relative z-10" /><span className="relative z-10">Send Message</span></>}
+          </button>
+        </div>
       </form>
     </div>
   );
