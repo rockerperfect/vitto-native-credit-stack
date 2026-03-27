@@ -22,7 +22,7 @@ const LifecycleFlowDiagram = () => {
         <div className="flex items-center justify-between gap-6 min-w-[800px] py-4">
           {flow.map((step, idx) => (
             <React.Fragment key={idx}>
-              <button 
+              <button
                 onClick={() => handleScroll(step.anchor)}
                 className="flex flex-col items-center gap-4 group focus:outline-none"
               >
