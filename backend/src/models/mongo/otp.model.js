@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 
-const OTPSchema = new mongoose.Schema({
+const otpSchema = new mongoose.Schema({
   contact: {
     type: String,
     required: true,
+    index: true,
   },
   otp: {
     type: String,
@@ -12,12 +13,8 @@ const OTPSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now,
+    expires: 300, // TTL: auto-delete after 5 minutes
   },
-  expiresAt: {
-    type: Date,
-    required: true,
-    index: { expires: 0 } // TTL index using the expiresAt field
-  }
 });
 
-module.exports = mongoose.model('OTP', OTPSchema);
+module.exports = mongoose.model('OTP', otpSchema);
