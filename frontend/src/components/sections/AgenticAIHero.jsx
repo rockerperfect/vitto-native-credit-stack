@@ -18,8 +18,8 @@ const AgenticAIHero = () => {
            Moving beyond generative chatter. Vitto Agentic AI operates within strictly retrieved institutional policy contexts to execute complex resolution workflows.
         </p>
         <div className="mt-12 flex justify-center items-center gap-4">
-           <Link to="/contact" className="btn-primary hover:bg-accent/80 shadow-2xl shadow-accent/20 px-10 py-4 italic transition-all group">
-              Explore Agent Profiles <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+           <Link to="/contact" className="btn-primary hover:bg-accent/80 shadow-2xl shadow-accent/20 px-10 py-4 italic transition-all group flex items-center gap-2">
+              Explore Agent Profiles <ArrowRight className="group-hover:translate-x-1 transition-transform" size={18} />
            </Link>
         </div>
       </div>

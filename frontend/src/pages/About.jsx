@@ -1,5 +1,5 @@
 import React from 'react';
-import { Target, Activity, ShieldCheck, Zap, ArrowRight, UserPlus, PhoneIncoming, ExternalLink, Bot, Layers } from 'lucide-react';
+import { ShieldCheck, Zap, Layers, ArrowRight, Bot } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const AboutHero = () => (

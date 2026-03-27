@@ -10,8 +10,10 @@ app.get('/health', (req, res) => {
   res.status(200).json({ status: 'OK', message: 'Vitto API Infrastructure is running' });
 });
 
-// Routes will be imported here
-// app.use('/api/auth', authRoutes);
-// app.use('/api/leads', leadRoutes);
+const authRoutes = require('./routes/auth.routes');
+const leadRoutes = require('./routes/leads.routes');
+
+app.use('/api/auth', authRoutes);
+app.use('/api/leads', leadRoutes);
 
 module.exports = app;

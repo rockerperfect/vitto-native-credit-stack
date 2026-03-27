@@ -83,7 +83,7 @@ const Collections = () => {
     <div className="bg-primary text-textPrimary overflow-hidden">
       <CollectionsHero />
       <RecoveryDecisioning />
-      <div className="py-20 text-center">
+      <div className="py-20 text-center bg-primary border-t border-border">
          <h2 className="text-3xl font-bold text-white italic underline decoration-accent underline-offset-8">Outcome Driven <span className="text-accent">Recovery.</span></h2>
       </div>
     </div>

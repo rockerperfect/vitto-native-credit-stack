@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeftRight, CheckCircle2, ShieldCheck, Zap } from 'lucide-react';
+import { ArrowLeftRight, CheckCircle2, ShieldCheck, Zap, Activity } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const LifecycleHero = () => {
@@ -24,10 +24,10 @@ const LifecycleHero = () => {
 
 const LifecycleStages = () => {
   const stages = [
-    { title: "Acquisition", icon: <Zap /> , details: ["Omni-channel onboarding", "Real-time bureau pulls", "Identity verification"] },
-    { title: "Underwriting", icon: <ShieldCheck /> , details: ["Predictive risk scoring", "Policy execution flow", "Explainable decisions"] },
-    { title: "Servicing", icon: <CheckCircle2 /> , details: ["Autonomous query resolution", "LMS ledger updates", "Seamless disbursement"] },
-    { title: "Collections", icon: <Activity /> , details: ["Recovery probability scoring", "Intelligent worklists", "Automated engagement"] }
+    { title: "Acquisition", icon: <Zap size={24} />, details: ["Omni-channel onboarding", "Real-time bureau pulls", "Identity verification"] },
+    { title: "Underwriting", icon: <ShieldCheck size={24} />, details: ["Predictive risk scoring", "Policy execution flow", "Explainable decisions"] },
+    { title: "Servicing", icon: <CheckCircle2 size={24} />, details: ["Autonomous query resolution", "LMS ledger updates", "Seamless disbursement"] },
+    { title: "Collections", icon: <Activity size={24} />, details: ["Recovery probability scoring", "Intelligent worklists", "Automated engagement"] }
   ];
 
   return (
@@ -37,13 +37,13 @@ const LifecycleStages = () => {
            {stages.map((stage, idx) => (
              <div key={idx} className="p-8 rounded-2xl border border-border bg-primary hover:border-accent/40 transition-all group">
                 <div className="w-12 h-12 rounded-xl bg-surface border border-border flex items-center justify-center text-accent mb-6 group-hover:scale-110 transition-transform">
-                   {stage.icon || <CheckCircle2 size={24} />}
+                   {stage.icon}
                 </div>
                 <h3 className="text-xl font-bold text-white mb-6 uppercase tracking-tight italic underline decoration-accent decoration-1 underline-offset-4">{stage.title}</h3>
                 <ul className="space-y-3">
                    {stage.details.map((d, i) => (
                      <li key={i} className="flex gap-2 text-sm text-textSecondary italic">
-                        <div className="w-1 h-1 rounded-full bg-accent mt-2"></div>
+                        <div className="w-1 h-1 rounded-full bg-accent mt-2 shrink-0"></div>
                         {d}
                      </li>
                    ))}
@@ -55,8 +55,6 @@ const LifecycleStages = () => {
     </section>
   );
 };
-
-import { Activity } from 'lucide-react';
 
 const LifecycleCTA = () => {
    return (
