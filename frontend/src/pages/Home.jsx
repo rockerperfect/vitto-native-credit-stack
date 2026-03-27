@@ -5,6 +5,7 @@ import SolutionSection from '../components/sections/SolutionSection';
 import AILayerSection from '../components/sections/AILayerSection';
 import BusinessImpactSection from '../components/sections/BusinessImpactSection';
 import SocialProofSection from '../components/sections/SocialProofSection';
+import FeaturedInsights from '../components/sections/FeaturedInsights';
 import CTABanner from '../components/sections/CTABanner';
 
 const Home = () => {
@@ -16,6 +17,7 @@ const Home = () => {
       <AILayerSection />
       <BusinessImpactSection />
       <SocialProofSection />
+      <FeaturedInsights />
       <CTABanner />
     </>
   );
