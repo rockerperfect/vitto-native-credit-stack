@@ -2,6 +2,7 @@ import React from 'react';
 import AboutHero from '../components/sections/AboutHero';
 import ProblemStatementSection from '../components/sections/ProblemStatementSection';
 import WhyVittoSection from '../components/sections/WhyVittoSection';
+import WorkflowComparison from '../components/sections/WorkflowComparison';
 import PrinciplesSection from '../components/sections/PrinciplesSection';
 import AboutCTA from '../components/sections/AboutCTA';
 
@@ -11,6 +12,7 @@ const About = () => {
       <AboutHero />
       <ProblemStatementSection />
       <WhyVittoSection />
+      <WorkflowComparison />
       <PrinciplesSection />
       <AboutCTA />
     </div>
