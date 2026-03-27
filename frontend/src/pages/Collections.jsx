@@ -1,10 +1,20 @@
 import React from 'react';
+import CollectionsHero from '../components/sections/CollectionsHero';
+import CollectionsProblem from '../components/sections/CollectionsProblem';
+import IntelligenceEngine from '../components/sections/IntelligenceEngine';
+import CollectionsModules from '../components/sections/CollectionsModules';
+import CollectionsOutcomes from '../components/sections/CollectionsOutcomes';
+import CollectionsCTA from '../components/sections/CollectionsCTA';
 
 const Collections = () => {
   return (
-    <div className="container mx-auto px-6 py-12">
-      <h1 className="text-3xl font-bold text-textPrimary">Collections</h1>
-      <p className="text-textSecondary mt-4">This is the Collections module.</p>
+    <div className="bg-primary text-textPrimary overflow-hidden">
+      <CollectionsHero />
+      <CollectionsProblem />
+      <IntelligenceEngine />
+      <CollectionsModules />
+      <CollectionsOutcomes />
+      <CollectionsCTA />
     </div>
   );
 };

@@ -1,10 +1,20 @@
 import React from 'react';
+import AgenticAIHero from '../components/sections/AgenticAIHero';
+import WhyNotLLMSection from '../components/sections/WhyNotLLMSection';
+import HowItWorksSection from '../components/sections/HowItWorksSection';
+import AgentsSection from '../components/sections/AgentsSection';
+import GuardrailsSection from '../components/sections/GuardrailsSection';
+import AgenticAICTA from '../components/sections/AgenticAICTA';
 
 const AgenticAI = () => {
   return (
-    <div className="container mx-auto px-6 py-12">
-      <h1 className="text-3xl font-bold text-textPrimary">AgenticAI</h1>
-      <p className="text-textSecondary mt-4">This is the AgenticAI module.</p>
+    <div className="bg-primary text-textPrimary overflow-hidden">
+      <AgenticAIHero />
+      <WhyNotLLMSection />
+      <HowItWorksSection />
+      <AgentsSection />
+      <GuardrailsSection />
+      <AgenticAICTA />
     </div>
   );
 };
