@@ -1,25 +1,49 @@
 import React from 'react';
-import { UserCheck, ShieldPlus, Briefcase, Zap } from 'lucide-react';
+import { Zap } from 'lucide-react';
+
+const AgentVisuals = [
+  // Borrower Agent: User pulse
+  <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-accent group-hover:scale-110 transition-transform">
+    <circle cx="40" cy="30" r="10" stroke="currentColor" strokeWidth="2" fill="currentColor" fillOpacity="0.1"/>
+    <path d="M20 65 C20 50 30 45 40 45 C50 45 60 50 60 65" stroke="currentColor" strokeWidth="2" fill="currentColor" fillOpacity="0.05"/>
+    <path d="M65 25 Q70 30 65 35" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="animate-pulse"/>
+  </svg>,
+  // Field Agent: Shield with signal
+  <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-accent group-hover:scale-110 transition-transform">
+    <path d="M40 10 L65 20 V45 C65 60 40 70 40 70 C40 70 15 60 15 45 V20 L40 10Z" stroke="currentColor" strokeWidth="2" fill="currentColor" fillOpacity="0.1"/>
+    <path d="M30 40 L38 48 L55 31" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
+    <circle cx="40" cy="40" r="25" stroke="currentColor" strokeWidth="1" strokeDasharray="2 4" strokeOpacity="0.3"/>
+  </svg>,
+  // Underwriter Agent: Briefcase with policy check
+  <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-accent group-hover:scale-110 transition-transform">
+    <rect x="20" y="25" width="40" height="35" rx="4" stroke="currentColor" strokeWidth="2" fill="currentColor" fillOpacity="0.1"/>
+    <path d="M30 25 V20 H50 V25" stroke="currentColor" strokeWidth="2"/>
+    <line x1="30" y1="40" x2="50" y2="40" stroke="currentColor" strokeWidth="1.5" strokeOpacity="0.4"/>
+    <line x1="30" y1="50" x2="45" y2="50" stroke="currentColor" strokeWidth="1.5" strokeOpacity="0.4"/>
+    <circle cx="65" cy="55" r="8" fill="primary" stroke="currentColor" strokeWidth="1.5"/>
+    <path d="M62 55 L64 57 L68 53" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+];
 
 const AgenticAISection = () => {
   const agents = [
     {
       title: "Borrower Agent",
-      icon: <UserCheck className="text-accent" size={24} />,
+      icon: AgentVisuals[0],
       role: "Self-service Interface",
       tasks: ["Handles EMI & balance queries", "Instant statement generation", "Payment status tracking"],
       constraints: ["Pulls data from LMS + policy"]
     },
     {
       title: "Field Agent",
-      icon: <ShieldPlus className="text-accent" size={24} />,
+      icon: AgentVisuals[1],
       role: "Assisted Collections",
       tasks: ["Next-best-action for recovery", "Customer behavior history", "PTP capture optimization"],
       constraints: ["Uses recovery probability signals"]
     },
     {
       title: "Underwriter Agent",
-      icon: <Briefcase className="text-accent" size={24} />,
+      icon: AgentVisuals[2],
       role: "Internal Decision Support",
       tasks: ["Instant policy lookups", "Policy-bound decision justification", "Workflow assistance"],
       constraints: ["Bound to internal policy context"]
