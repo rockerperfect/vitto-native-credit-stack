@@ -76,36 +76,72 @@ Vitto is a **full-stack, AI-native credit decisioning nexus** built for **NBFCs,
 
 ---
 
-## 🚀 Quick Start (Local Development)
+## 🚀 Step-by-Step Setup Guide
 
-### 1️⃣ Clone & Install:
-```bash
-git clone https://github.com/your-username/vitto-native-credit-stack.git
-cd vitto-native-credit-stack
-npm run install-all
-```
+### 📂 Prerequisites
+- **Node.js**: v18+ installed
+- **Git**: Installed on your machine
 
-### 2️⃣ Configure Environment:
-```bash
-cp backend/.env.example backend/.env
-# Open backend/.env and fill in your credentials
-```
+---
 
-| Variable | Description |
-|---|---|
-| `NODE_ENV` | `development` |
-| `PORT` | `5000` |
-| `JWT_SECRET` | A random 64+ char string |
-| `POSTGRES_URI` | Supabase or local PostgreSQL connection string |
-| `MONGO_URI` | MongoDB Atlas or local connection string |
+### 📦 Level 1: Unified Automatic Setup (Fastest)
+I have automated the entire environment provisioning using root scripts.
 
-### 3️⃣ Launch:
-```bash
-npm run dev
-```
-- 🌐 **Frontend**: http://localhost:5173
-- 🛰️ **Backend**: http://localhost:5000
-- ✅ **Health**: http://localhost:5000/health
+1. **Open your Terminal** at the project root (`vitto-native-credit-stack`).
+2. **Install all dependencies** (Root + Backend + Frontend):
+   ```bash
+   npm run install-all
+   ```
+3. **Setup Environment**:
+   ```bash
+   cp backend/.env.example backend/.env
+   ```
+   *(Edit `backend/.env` with your Mongo/Postgres strings if not using our cloud staging.)*
+4. **Launch both servers simultaneously**:
+   ```bash
+   npm run dev
+   ```
+
+---
+
+### 🛠️ Level 2: Manual Sub-Folder Setup (Granular)
+
+If you prefer to manage the folders individually, follow these steps:
+
+#### 🛰️ Backend Infrastructure
+1. **Navigate to backend**:
+   ```bash
+   cd backend
+   ```
+2. **Install server dependencies**:
+   ```bash
+   npm install
+   ```
+3. **Configure secrets**:
+   ```bash
+   cp .env.example .env
+   ```
+4. **Start the Express server**:
+   ```bash
+   npm start
+   ```
+   *The backend will now be live at `http://localhost:5000`*
+
+#### 🌐 Frontend Nexus
+1. **Open a NEW terminal window** at the project root.
+2. **Navigate to frontend**:
+   ```bash
+   cd frontend
+   ```
+3. **Install UI dependencies**:
+   ```bash
+   npm install
+   ```
+4. **Launch the Vite dev server**:
+   ```bash
+   npm run dev
+   ```
+   *The UI will now be live at `http://localhost:5173`*
 
 ---
 
