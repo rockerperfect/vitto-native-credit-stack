@@ -82,66 +82,27 @@ Vitto is a **full-stack, AI-native credit decisioning nexus** built for **NBFCs,
 - **Node.js**: v18+ installed
 - **Git**: Installed on your machine
 
----
+### 🛠️Manual Sub-Folder Setup (Granular)
 
-### 📦 Level 1: Unified Automatic Setup (Fastest)
-I have automated the entire environment provisioning using root scripts.
-
-1. **Open your Terminal** at the project root (`vitto-native-credit-stack`).
-2. **Install all dependencies** (Root + Backend + Frontend):
-   ```bash
-   npm run install-all
-   ```
-3. **Setup Environment**:
-   ```bash
-   cp backend/.env.example backend/.env
-   ```
-   *(Edit `backend/.env` with your Mongo/Postgres strings if not using our cloud staging.)*
-4. **Launch both servers simultaneously**:
-   ```bash
-   npm run dev
-   ```
-
----
-
-### 🛠️ Level 2: Manual Sub-Folder Setup (Granular)
-
-If you prefer to manage the folders individually, follow these steps:
+If you prefer to manage the folders individually, use these folder-specific commands:
 
 #### 🛰️ Backend Infrastructure
-1. **Navigate to backend**:
-   ```bash
-   cd backend
-   ```
-2. **Install server dependencies**:
-   ```bash
-   npm install
-   ```
-3. **Configure secrets**:
-   ```bash
-   cp .env.example .env
-   ```
-4. **Start the Express server**:
+1. **Navigate to backend**: `cd backend`
+2. **Setup**: `npm install && cp .env.example .env`
+3. **Start Server**:
    ```bash
    npm start
    ```
-   *The backend will now be live at `http://localhost:5000`*
+   *Port: 5000*
 
 #### 🌐 Frontend Nexus
-1. **Open a NEW terminal window** at the project root.
-2. **Navigate to frontend**:
-   ```bash
-   cd frontend
-   ```
-3. **Install UI dependencies**:
-   ```bash
-   npm install
-   ```
-4. **Launch the Vite dev server**:
+1. **Navigate to frontend**: `cd frontend`
+2. **Install**: `npm install`
+3. **Start UI**:
    ```bash
    npm run dev
    ```
-   *The UI will now be live at `http://localhost:5173`*
+   *Port: 5173 (Requests are proxied to 5000)*
 
 ---
 
