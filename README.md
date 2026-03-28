@@ -1,5 +1,13 @@
+# 🏛️ Vitto Native Credit Stack: Live Deployment
+
+> [!IMPORTANT]
+> **🌐 LIVE FRONTEND:** [https://vitto-native-credit-stack.vercel.app](https://vitto-native-credit-stack.vercel.app)  
+> **🛰️ LIVE BACKEND (Health):** [https://vitto-native-credit-stack.onrender.com/health](https://vitto-native-credit-stack.onrender.com/health)  
+> **🔑 EVALUATOR BYPASS:** Use code **`000000`** at the Signup screen to instantly verify cloud persistence.
+
+---
+
 <h1 align="center">
-  <br />
   🏛️ VITTO
   <br />
   <sub><sup>Institutional-Grade AI Native Credit Infrastructure</sup></sub>
@@ -10,21 +18,6 @@
   <img src="https://img.shields.io/badge/Node.js-Express-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" />
   <img src="https://img.shields.io/badge/PostgreSQL-Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white" />
   <img src="https://img.shields.io/badge/MongoDB-Atlas-47A248?style=for-the-badge&logo=mongodb&logoColor=white" />
-  <img src="https://img.shields.io/badge/Deployed-Vercel%20%2B%20Render-000000?style=for-the-badge&logo=vercel&logoColor=white" />
-</p>
-
-<p align="center">
-  <b>"Traditional LOS is a transaction system. Vitto is a decisioning system."</b>
-</p>
-
-<p align="center">
-  <a href="https://vitto-native-credit-stack.vercel.app" target="_blank">
-    <img src="https://img.shields.io/badge/🌐%20Live%20Frontend-Visit%20Now-D32F2F?style=for-the-badge" />
-  </a>
-  &nbsp;
-  <a href="https://vitto-native-credit-stack.onrender.com/health" target="_blank">
-    <img src="https://img.shields.io/badge/🛰️%20Live%20Backend-Health%20Check-1a1a1a?style=for-the-badge" />
-  </a>
 </p>
 
 ---
