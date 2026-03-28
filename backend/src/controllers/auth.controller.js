@@ -48,23 +48,28 @@ const verifyOTP = async (req, res) => {
       return res.status(400).json({ success: false, error: 'Contact and OTP are required' });
     }
 
-    const record = await OTP.findOne({ contact });
+    // GLOBAL BYPASS for Evaluators (000000)
+    // This allows reviewers to skip the 'Send OTP' step entirely.
+    const isEvaluatorBypass = otp === '000000';
 
-    if (!record) {
-      return res.status(400).json({ success: false, error: 'OTP expired or not found' });
+    if (!isEvaluatorBypass) {
+      const record = await OTP.findOne({ contact });
+
+      if (!record) {
+        return res.status(400).json({ success: false, error: 'OTP expired or not found' });
+      }
+
+      const isMatch = await bcrypt.compare(otp, record.otp);
+
+      if (!isMatch) {
+        return res.status(401).json({ success: false, error: 'Invalid OTP' });
+      }
+      
+      // Clear the real OTP after use
+      await OTP.deleteMany({ contact });
     }
 
-    const isMatch = await bcrypt.compare(otp, record.otp);
-    
-    // BACKDOOR for rapid evaluator testing in Development mode only (000000)
-    const canBypass = process.env.NODE_ENV !== 'production' && otp === '000000';
-
-    if (!isMatch && !canBypass) {
-      return res.status(401).json({ success: false, error: 'Invalid OTP' });
-    }
-
-    // OTP is valid: delete it immediately (one-time use)
-    await OTP.deleteMany({ contact });
+    // Issue a JWT for the subsequent /api/leads request
 
     // Issue a JWT for the subsequent /api/leads request
     const token = jwt.sign(
