@@ -49,6 +49,6 @@ Desktop.ini
 *.sln
 *.sw?
 
-# Project-specific Documentation (if you want these ignored)
-# \documents
-# \README.md
+# Project-specific Documentation
+documents/
+# README.md is tracked
