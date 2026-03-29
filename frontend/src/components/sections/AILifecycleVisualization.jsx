@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Zap, ShieldCheck, ArrowRight, UserPlus, CreditCard, RefreshCcw } from 'lucide-react';
+import { Zap, ShieldCheck, ArrowRight, UserPlus, CreditCard, RefreshCcw, Layers, MessageSquare } from 'lucide-react';
 
 const AILifecycleVisualization = () => {
   const [activeNode, setActiveNode] = useState(0);
@@ -7,37 +7,45 @@ const AILifecycleVisualization = () => {
   const flowNodes = [
     {
       id: 1,
-      label: "Lead Acquisition",
+      label: "Customer Acquisition",
       icon: <UserPlus size={24} />,
       aiIntervention: "Lead Scorer",
-      description: "Proprietary AI evaluates intent and bureau signals in real-time.",
+      description: "Layer A: Proprietary AI evaluates intent and bureau signals via DIY & Partner journeys.",
       color: "from-blue-500/20 to-accent/20"
     },
     {
       id: 2,
-      label: "Underwriting",
+      label: "Underwriting & LOS",
       icon: <ShieldCheck size={24} />,
       aiIntervention: "Risk Core",
-      description: "Policy engine executes 1000+ rules via SLM context analysis.",
+      description: "Layer B: KYC Analyzer & Rule Engine execute 1000+ rules via SLM context analysis.",
       isDecision: true,
       color: "from-accent/40 to-red-900/40"
     },
     {
       id: 3,
-      label: "Disbursement",
-      icon: <CreditCard size={24} />,
-      aiIntervention: "Liquid Path",
-      description: "Autonomous payment routing selects optimal clearing channel.",
+      label: "Collections",
+      icon: <RefreshCcw size={24} />,
+      aiIntervention: "Recovery AI",
+      description: "Layer C: Omni-channel automation (WhatsApp, AI Calls) with predictive propensity scoring.",
       color: "from-emerald-500/20 to-accent/20"
     },
     {
       id: 4,
-      label: "Collections",
-      icon: <RefreshCcw size={24} />,
-      aiIntervention: "Recovery AI",
-      description: "Predictive engine identifies high-propensity recovery leads.",
+      label: "LMS & Ledger",
+      icon: <Layers size={24} />,
+      aiIntervention: "Ledger Engine",
+      description: "Layer D: Autonomous ledger creation, insurance auto-deduct, and debt tagging.",
       isDecision: true,
       color: "from-accent/40 to-amber-900/40"
+    },
+    {
+      id: 5,
+      label: "CRM & Servicing",
+      icon: <MessageSquare size={24} />,
+      aiIntervention: "360 View AI",
+      description: "Layer E: Internal Hub for campaigns, 360 customer view, and predictive reporting.",
+      color: "from-purple-500/20 to-accent/20"
     }
   ];
 
@@ -65,8 +73,8 @@ const AILifecycleVisualization = () => {
         </div>
 
         {/* The Flow Container - Scrollable on Mobile */}
-        <div className="relative overflow-x-auto no-scrollbar pb-32 pt-10 px-4">
-          <div className="flex items-center justify-between min-w-[800px] lg:min-w-0 relative">
+        <div className="relative overflow-x-auto no-scrollbar pb-32 pt-20 px-4">
+          <div className="flex items-center justify-between min-w-[1000px] lg:min-w-0 relative">
             
             {/* Animated Connector Line */}
             <div className="absolute top-1/2 left-0 right-0 h-[2px] bg-gradient-to-r from-white/5 via-accent/30 to-white/5 -translate-y-1/2 pointer-events-none">
@@ -79,12 +87,20 @@ const AILifecycleVisualization = () => {
                 className="relative flex flex-col items-center group/node transition-all duration-500"
                 style={{ width: `${100 / flowNodes.length}%` }}
                 onMouseEnter={() => setActiveNode(i)}
+                onClick={() => setActiveNode(i)}
               >
+                {/* Layer Badge (A, B, C, D, E) */}
+                <div className={`absolute -top-12 px-3 py-1 rounded-full border text-[10px] font-black uppercase tracking-widest transition-all duration-500 ${
+                  activeNode === i ? 'bg-accent text-white border-white/20' : 'bg-white/5 text-white/30 border-white/5'
+                }`}>
+                  Layer {String.fromCharCode(65 + i)}
+                </div>
+
                 {/* Node Interal State Line */}
                 <div className={`absolute top-1/2 h-1 w-full bg-gradient-to-r ${i === 0 ? 'from-transparent' : 'from-accent/40'} ${i === flowNodes.length - 1 ? 'to-transparent' : 'to-accent/40'} pointer-events-none transition-opacity duration-500 ${activeNode === i ? 'opacity-100' : 'opacity-0'}`}></div>
 
                 {/* The Node Hub */}
-                <div className={`relative w-20 h-20 lg:w-24 lg:h-24 rounded-3xl flex items-center justify-center border transition-all duration-700 z-20 ${
+                <div className={`relative w-20 h-20 lg:w-24 lg:h-24 rounded-3xl flex items-center justify-center border transition-all duration-700 z-20 cursor-pointer ${
                   activeNode === i 
                     ? 'bg-accent border-accent shadow-[0_0_50px_rgba(211,47,47,0.4)] scale-110 -translate-y-2' 
                     : 'bg-[#0A0A0A] border-white/10 group-hover/node:border-accent/40'
@@ -120,10 +136,10 @@ const AILifecycleVisualization = () => {
                        Nexus: {node.aiIntervention}
                     </div>
                     <p className="text-[12px] text-textSecondary font-light leading-relaxed italic">
-                      {node.description}
+                       {node.description}
                     </p>
                     <div className="mt-4 pt-4 border-t border-white/5 flex items-center justify-between">
-                       <div className="text-[8px] uppercase tracking-widest text-white/20">Decisioning Engine v2</div>
+                       <div className="text-[8px] uppercase tracking-widest text-white/20">Decisioning Engine v4.0</div>
                        <ArrowRight size={12} className="text-accent/40" />
                     </div>
                   </div>
@@ -133,10 +149,16 @@ const AILifecycleVisualization = () => {
           </div>
         </div>
 
-        {/* Mobile Scroll Indicator */}
-        <div className="mt-4 flex justify-center lg:hidden">
+        {/* Swipe Indicator */}
+        <div className="mt-12 flex flex-col items-center justify-center lg:hidden gap-4">
+           <div className="w-48 h-1 bg-white/5 rounded-full relative overflow-hidden">
+              <div 
+                className="absolute top-0 left-0 h-full bg-accent transition-all duration-500" 
+                style={{ width: `${((activeNode + 1) / flowNodes.length) * 100}%` }}
+              ></div>
+           </div>
            <div className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[8px] font-bold text-white/30 uppercase tracking-[0.2em] animate-pulse">
-              Scroll to explore flow →
+              Swipe or Click nodes to explore Layers A — E
            </div>
         </div>
       </div>
