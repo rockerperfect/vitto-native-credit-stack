@@ -20,7 +20,7 @@ const sendOTP = async (req, res) => {
     // Delete any existing OTP for this contact (prevent replay)
     await OTP.deleteMany({ contact });
 
-    // Store hashed OTP in MongoDB with 5-min TTL
+    // Store hashed OTP in MongoDB with 10-min TTL
     await OTP.create({ contact, otp: hashedOTP });
 
     // In production: send OTP via SMS (Twilio) or Email (SendGrid)
@@ -29,7 +29,7 @@ const sendOTP = async (req, res) => {
 
     res.status(200).json({
       success: true,
-      message: `OTP sent to ${contact}. Valid for 5 minutes.`,
+      message: `OTP sent to ${contact}. Valid for 10 minutes.`,
       // REMOVE IN PRODUCTION:
       _dev_otp: process.env.NODE_ENV !== 'production' ? otp : undefined,
     });
@@ -68,9 +68,6 @@ const verifyOTP = async (req, res) => {
       // Clear the real OTP after use
       await OTP.deleteMany({ contact });
     }
-
-    // Issue a JWT for the subsequent /api/leads request
-
     // Issue a JWT for the subsequent /api/leads request
     const token = jwt.sign(
       { contact },
