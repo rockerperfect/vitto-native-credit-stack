@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Building2, MapPin, BarChart3, ChevronDown, Rocket, Loader2, AlertCircle } from 'lucide-react';
+import { API_ENDPOINTS } from '../../api/config';
 
 const Step2Organization = ({ authToken, contactInfo, onSuccess }) => {
   const [formData, setFormData] = useState({
@@ -25,7 +26,7 @@ const Step2Organization = ({ authToken, contactInfo, onSuccess }) => {
     setError('');
 
     try {
-      const response = await fetch('/api/leads', {
+      const response = await fetch(API_ENDPOINTS.SUBMIT_LEAD, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
