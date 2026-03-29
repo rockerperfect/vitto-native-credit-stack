@@ -11,9 +11,9 @@ export default {
         header: ['Outfit', 'Inter', 'system-ui', 'sans-serif'],
       },
       colors: {
-        primary: '#0A0A0B', // Midnight Obsidian
+        primary: '#1A1A2E', // Deep AI Navy
         accent: '#D32F2F',  // Vitto Cardinal
-        surface: '#111116', // Deep Surface
+        surface: '#16213E', // Surface Navy
         border: 'rgba(255, 255, 255, 0.05)',
         textPrimary: '#FFFFFF',
         textSecondary: '#A1A1AA'
