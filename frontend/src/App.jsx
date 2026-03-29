@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Platform from './pages/Platform';
 import Lifecycle from './pages/Lifecycle';
 import Collections from './pages/Collections';
+import AgenticAI from './pages/AgenticAI';
 import API from './pages/API';
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -29,6 +30,7 @@ const Layout = ({ children }) => {
     { to: '/platform', label: 'Platform' },
     { to: '/lifecycle', label: 'Lifecycle' },
     { to: '/collections', label: 'Collections' },
+    { to: '/agentic-ai', label: 'Agentic AI' },
     { to: '/api', label: 'API' },
     { to: '/about', label: 'About' },
     { to: '/contact', label: 'Contact' },
@@ -117,6 +119,7 @@ function App() {
           <Route path="/platform" element={<Platform />} />
           <Route path="/lifecycle" element={<Lifecycle />} />
           <Route path="/collections" element={<Collections />} />
+          <Route path="/agentic-ai" element={<AgenticAI />} />
           <Route path="/api" element={<API />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
