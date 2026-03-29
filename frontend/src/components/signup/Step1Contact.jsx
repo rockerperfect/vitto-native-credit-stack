@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, Lock, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
+import { API_ENDPOINTS } from '../../api/config';
 
 const Step1Contact = ({ onVerified }) => {
   const [contact, setContact] = useState('');
@@ -19,7 +20,7 @@ const Step1Contact = ({ onVerified }) => {
     setError('');
 
     try {
-      const response = await fetch('/api/auth/send-otp', {
+      const response = await fetch(API_ENDPOINTS.SEND_OTP, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ contact }),
@@ -50,7 +51,7 @@ const Step1Contact = ({ onVerified }) => {
     setError('');
 
     try {
-      const response = await fetch('/api/auth/verify-otp', {
+      const response = await fetch(API_ENDPOINTS.VERIFY_OTP, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ contact, otp }),
