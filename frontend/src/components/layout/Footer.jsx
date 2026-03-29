@@ -54,6 +54,7 @@ const Footer = () => {
               <li><Link to="/platform" className="text-textSecondary text-sm font-bold hover:text-white transition-colors uppercase tracking-widest text-[10px]">Architecture</Link></li>
               <li><Link to="/lifecycle" className="text-textSecondary text-sm font-bold hover:text-white transition-colors uppercase tracking-widest text-[10px]">Lending Lifecycle</Link></li>
               <li><Link to="/collections" className="text-textSecondary text-sm font-bold hover:text-white transition-colors uppercase tracking-widest text-[10px]">Collections AI</Link></li>
+              <li><Link to="/agentic-ai" className="text-textSecondary text-sm font-bold hover:text-white transition-colors uppercase tracking-widest text-[10px]">Agentic Models</Link></li>
             </ul>
           </div>
           
