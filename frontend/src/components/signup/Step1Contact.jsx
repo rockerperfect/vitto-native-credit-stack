@@ -16,6 +16,15 @@ const Step1Contact = ({ onVerified }) => {
       return;
     }
 
+    // Strict Institutional Validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^\+?[1-9]\d{9,14}$/;
+
+    if (!emailRegex.test(contact) && !phoneRegex.test(contact)) {
+      setError('Please enter a valid institutional email or phone number.');
+      return;
+    }
+
     setStatus('sending');
     setError('');
 
