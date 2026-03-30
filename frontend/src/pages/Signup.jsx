@@ -1,13 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Step1Contact from '../components/signup/Step1Contact';
 import Step2Organization from '../components/signup/Step2Organization';
 import Step3Confirmation from '../components/signup/Step3Confirmation';
 import VittoLogo from '../components/layout/VittoLogo';
+import { API_ENDPOINTS } from '../api/config';
 
 const Signup = () => {
   const [step, setStep] = useState(1);
   const [authToken, setAuthToken] = useState('');
   const [contactInfo, setContactInfo] = useState({ email: '', phone: '' });
+
+  // Pre-heat backend for zero-second cold start response
+  useEffect(() => {
+    fetch(API_ENDPOINTS.HEALTH_CHECK).catch(() => {});
+  }, []);
 
   const nextStep = () => setStep(prev => prev + 1);
 
